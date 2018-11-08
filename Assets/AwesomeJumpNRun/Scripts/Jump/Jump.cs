@@ -7,8 +7,8 @@ public class Jump : MonoBehaviour {
     [SerializeField] int jumpHeight;
 
     private bool jump = false;
-
     private Rigidbody thisRigidbody;
+
 	// Use this for initialization
 	void Start () {
         thisRigidbody = GetComponent<Rigidbody>();
