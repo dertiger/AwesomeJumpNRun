@@ -43,12 +43,12 @@ public class AutoMoveHandler : MonoBehaviour, IMovementHandler
 
     private bool coliderRightOrLeft(Collision collision)
     {
-        float otherYPos = collision.collider.transform.position.y;
-        if((otherYPos > (transform.position.y - transform.localScale.y / 2)) &&
-            (otherYPos < (transform.position.y + transform.localScale.y / 2)))
+        Transform otherTransform = collision.collider.transform;
+        if(((otherTransform.position.y + otherTransform.localScale.y/2) <= (transform.position.y - transform.localScale.y / 2)) ||
+            (otherTransform.position.y - otherTransform.localScale.y / 2) >= (transform.position.y + transform.localScale.y / 2))
         {
-            return true;
+            return false;
         }
-        return false;
+        return true;
     }
 }
