@@ -2,31 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Move : MonoBehaviour{
+public abstract class Move : MonoBehaviour{
     [SerializeField] private int movementSpeed;
 
     public List<int> movementModifiersInPercent = new List<int>();
 
     private Rigidbody thisRigidbody;
-    private MoveDirection moveDirection = MoveDirection.STOP;
+    protected MoveDirection moveDirection = MoveDirection.STOP;
+
     // Use this for initialization
-    void Start ()
+    public virtual void Start ()
     {
-        Debug.Log("Register to Move event");
-        GetComponent<IMovementHandler>().Move += OnMove;
         thisRigidbody = GetComponent<Rigidbody>();
     }
-
-    private void OnMove(MoveDirection direction)
-    {
-        Debug.Log("set Move Input");
-        moveDirection = direction;
-    }
-
-    // Update is called once per frame
-    void Update () {
-		
-	}
 
     private void FixedUpdate()
     {

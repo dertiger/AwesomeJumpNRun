@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Jump : MonoBehaviour {
-    [SerializeField] InputManager inputManager;
     [SerializeField] int jumpHeight;
 
     private bool jump = false;
@@ -12,8 +11,8 @@ public class Jump : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         thisRigidbody = GetComponent<Rigidbody>();
-        inputManager.Jump += onJump;
-	}
+        GetComponentInParent<IJumpHandler>().Jump += onJump;
+    }
 
     private void onJump()
     {

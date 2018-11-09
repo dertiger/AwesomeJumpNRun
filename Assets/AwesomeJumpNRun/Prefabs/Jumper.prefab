@@ -23,10 +23,9 @@ GameObject:
   - component: {fileID: 23617186609094760}
   - component: {fileID: 65798519579642012}
   - component: {fileID: 114436315178325430}
-  - component: {fileID: 114039219537068000}
-  - component: {fileID: 114530741683593046}
   - component: {fileID: 54229669260603916}
   - component: {fileID: 114457785131852342}
+  - component: {fileID: 114751195267616532}
   m_Layer: 0
   m_Name: Jumper
   m_TagString: Untagged
@@ -116,18 +115,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &114039219537068000
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1248939494232070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc486647416762541a633363412d362c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputManager: {fileID: 0}
 --- !u!114 &114436315178325430
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -139,7 +126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fdb8cb33e715504aa5df9e0c30f949f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputManager: {fileID: 0}
   jumpHeight: 400
 --- !u!114 &114457785131852342
 MonoBehaviour:
@@ -153,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soPlayerPosition: {fileID: 11400000, guid: 7fefd7fd3125e1f44b1f39f02d36a0a3, type: 2}
---- !u!114 &114530741683593046
+--- !u!114 &114751195267616532
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,7 +147,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1248939494232070}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c983bedac3fe34346996ca2de3d2f0ed, type: 3}
+  m_Script: {fileID: 11500000, guid: f9126b815e74a9f42afb2ef42f07f354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 2

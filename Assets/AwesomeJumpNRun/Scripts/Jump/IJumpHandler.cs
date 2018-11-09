@@ -3,6 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IMovementHandler{
-    event Action<MoveDirection> Move;
+public interface IJumpHandler{
+    event Action Jump;
 }
