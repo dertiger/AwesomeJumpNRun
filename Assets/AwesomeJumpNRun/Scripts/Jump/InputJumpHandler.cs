@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class InputJumpHandler : MonoBehaviour, IJumpHandler
 {
-    [SerializeField] InputManager inputManager;
+    [SerializeField] private InputManager inputManager;
+
     public event Action Jump = delegate { };
 
-    void Start()
+    private void Start()
     {
         inputManager.Jump += InputManager_Jump;
     }

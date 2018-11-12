@@ -2,20 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputMove : Move {
-
-	// Use this for initialization
-	public override void Start () {
+public class InputMove : Move
+{
+    protected override void Start()
+    {
         base.Start();
+        //TODO: why is the InputManager here found via FindGameObjectWithTag and not inserted?
         GameObject.FindGameObjectWithTag("InputManager").GetComponent<InputManager>().Move += OnMove;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    }
+
     private void OnMove(MoveDirection direction)
     {
-        moveDirection = direction;
+        MoveDirection = direction;
     }
 }

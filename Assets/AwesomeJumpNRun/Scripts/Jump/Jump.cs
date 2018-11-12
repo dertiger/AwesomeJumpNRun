@@ -2,39 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Jump : MonoBehaviour {
-    [SerializeField] int jumpHeight;
+public class Jump : MonoBehaviour
+{
+    [SerializeField] private int jumpHeight;
 
-    private bool jump = false;
-    private Rigidbody thisRigidbody;
+    private bool isJumping;
+    private Rigidbody rigBody;
 
-	// Use this for initialization
-	void Start () {
-        thisRigidbody = GetComponent<Rigidbody>();
-        GetComponentInParent<IJumpHandler>().Jump += onJump;
+    private void Start()
+    {
+        rigBody = GetComponent<Rigidbody>();
+        GetComponentInParent<IJumpHandler>().Jump += OnJump;
     }
 
-    private void onJump()
+    private void OnJump()
     {
-        jump = true;
-    }
-
-    // Update is called once per frame
-    void Update () {
-		
-	}
-
-    private void FixedUpdate()
-    {
-        CheckJump();
-    }
-
-    private void CheckJump()
-    {
-        if (jump)
+        if (!isJumping)
         {
-            thisRigidbody.AddForce(new Vector3(0, jumpHeight, 0), ForceMode.Acceleration);
-            jump = false;
+            isJumping = true;
+            rigBody.AddForce(new Vector3(0, jumpHeight, 0), ForceMode.Acceleration);
+            StartCoroutine(DelayJump());
         }
+    }
+
+    private IEnumerator DelayJump()
+    {
+        yield return new WaitForSeconds(1f);
+        isJumping = false;
     }
 }

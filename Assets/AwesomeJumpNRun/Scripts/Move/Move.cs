@@ -2,49 +2,51 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Move : MonoBehaviour{
+public abstract class Move : MonoBehaviour
+{
     [SerializeField] private int movementSpeed;
 
-    public List<int> movementModifiersInPercent = new List<int>();
+    [SerializeField] private List<int> movementModifiersInPercent = new List<int>();
 
-    private Rigidbody thisRigidbody;
-    protected MoveDirection moveDirection = MoveDirection.STOP;
+    private Rigidbody rigBody;
+    protected MoveDirection MoveDirection = MoveDirection.STOP;
 
-    // Use this for initialization
-    public virtual void Start ()
+
+    protected virtual void Start()
     {
-        thisRigidbody = GetComponent<Rigidbody>();
+        rigBody = GetComponent<Rigidbody>();
     }
 
     private void FixedUpdate()
     {
-        if (moveDirection == MoveDirection.RIGHT)
+        if (MoveDirection == MoveDirection.RIGHT)
         {
-            move(transform.forward);
+            MoveInDirection(transform.forward);
         }
-        else if (moveDirection == MoveDirection.LEFT)
+        else if (MoveDirection == MoveDirection.LEFT)
         {
-            move(-transform.forward);
+            MoveInDirection(-transform.forward);
         }
-        else if (moveDirection == MoveDirection.STOP)
+        else if (MoveDirection == MoveDirection.STOP)
         {
-            move(Vector3.zero);
+            MoveInDirection(Vector3.zero);
         }
     }
 
-    private void move(Vector3 direction)
+    private void MoveInDirection(Vector3 direction)
     {
-        direction = direction * calcSpeedModifier();
-        thisRigidbody.velocity = new Vector3(direction.x, thisRigidbody.velocity.y, direction.z);
+        direction = direction * CalcSpeedModifier();
+        rigBody.velocity = new Vector3(direction.x, rigBody.velocity.y, direction.z);
     }
 
-    private float calcSpeedModifier()
+    private float CalcSpeedModifier()
     {
         float speedmodifier = movementSpeed;
-        foreach (int percent in movementModifiersInPercent)
+        foreach (var percent in movementModifiersInPercent)
         {
-            speedmodifier *= (float)percent / 100;
+            speedmodifier *= (float) percent / 100;
         }
+
         return speedmodifier;
     }
 }

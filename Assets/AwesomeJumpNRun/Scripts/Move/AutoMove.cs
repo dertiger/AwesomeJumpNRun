@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AutoMove : Move {
-
-	// Use this for initialization
-	public override void Start () {
+    
+    protected override void Start () {
         base.Start();
-        moveDirection = MoveDirection.LEFT;
+        MoveDirection = MoveDirection.LEFT;
 	}
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (coliderRightOrLeft(collision))
+        if (ColiderRightOrLeft(collision))
         {
             InvertMoveDirection();
         }
@@ -20,21 +19,21 @@ public class AutoMove : Move {
 
     private void InvertMoveDirection()
     {
-        if (moveDirection == MoveDirection.LEFT)
+        if (MoveDirection == MoveDirection.LEFT)
         {
-            moveDirection = MoveDirection.RIGHT;
+            MoveDirection = MoveDirection.RIGHT;
         }
         else
         {
-            moveDirection = MoveDirection.LEFT;
+            MoveDirection = MoveDirection.LEFT;
         }
     }
 
-    private bool coliderRightOrLeft(Collision collision)
+    private bool ColiderRightOrLeft(Collision collision)
     {
-        Transform otherTransform = collision.collider.transform;
-        if (((otherTransform.position.y + otherTransform.localScale.y / 2) <= (transform.position.y - transform.localScale.y / 2)) ||
-            (otherTransform.position.y - otherTransform.localScale.y / 2) >= (transform.position.y + transform.localScale.y / 2))
+        var otherTransform = collision.collider.transform;
+        if (otherTransform.position.y + otherTransform.localScale.y / 2 <= transform.position.y - transform.localScale.y / 2 ||
+            otherTransform.position.y - otherTransform.localScale.y / 2 >= transform.position.y + transform.localScale.y / 2)
         {
             return false;
         }

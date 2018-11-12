@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour {
-    [SerializeField] SoPlayerPosition soPlayerPosition;
-    [SerializeField] SoCameraOffset soCameraOffset;
+public class CameraController : MonoBehaviour
+{
+    [SerializeField] private PlayerPosition playerPosition;
+    [SerializeField] private CameraOffset cameraOffset;
     private Transform myTransform;
-	// Use this for initialization
-	void Start () {
+
+    private void Start()
+    {
         myTransform = GetComponent<Transform>();
-	}
+    }
 
     private void LateUpdate()
     {
-        myTransform.position = soPlayerPosition.position + soCameraOffset.position;
+        myTransform.position = playerPosition.ObjectPosition + cameraOffset.ObjectPosition;
     }
 }
