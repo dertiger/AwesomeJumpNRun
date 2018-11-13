@@ -8,8 +8,8 @@ public abstract class Move : MonoBehaviour
 
     [SerializeField] private List<int> movementModifiersInPercent = new List<int>();
 
-    private Rigidbody rigBody;
-    protected MoveDirection MoveDirection = MoveDirection.STOP;
+    protected Rigidbody rigBody;
+    protected MoveDirection moveDirection = MoveDirection.STOP;
 
 
     protected virtual void Start()
@@ -19,15 +19,15 @@ public abstract class Move : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (MoveDirection == MoveDirection.RIGHT)
+        if (moveDirection == MoveDirection.RIGHT)
         {
             MoveInDirection(transform.forward);
         }
-        else if (MoveDirection == MoveDirection.LEFT)
+        else if (moveDirection == MoveDirection.LEFT)
         {
             MoveInDirection(-transform.forward);
         }
-        else if (MoveDirection == MoveDirection.STOP)
+        else if (moveDirection == MoveDirection.STOP)
         {
             MoveInDirection(Vector3.zero);
         }

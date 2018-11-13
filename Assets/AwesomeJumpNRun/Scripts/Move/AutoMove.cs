@@ -6,7 +6,7 @@ public class AutoMove : Move {
     
     protected override void Start () {
         base.Start();
-        MoveDirection = MoveDirection.LEFT;
+        moveDirection = MoveDirection.LEFT;
 	}
 
     private void OnCollisionEnter(Collision collision)
@@ -19,13 +19,13 @@ public class AutoMove : Move {
 
     private void InvertMoveDirection()
     {
-        if (MoveDirection == MoveDirection.LEFT)
+        if (moveDirection == MoveDirection.LEFT)
         {
-            MoveDirection = MoveDirection.RIGHT;
+            moveDirection = MoveDirection.RIGHT;
         }
         else
         {
-            MoveDirection = MoveDirection.LEFT;
+            moveDirection = MoveDirection.LEFT;
         }
     }
 

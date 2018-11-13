@@ -11,7 +11,7 @@ public class Jump : MonoBehaviour
 
     private void Start()
     {
-        rigBody = GetComponent<Rigidbody>();
+        rigBody = GetComponentInParent<Rigidbody>();
         GetComponentInParent<IJumpHandler>().Jump += OnJump;
     }
 

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - InputManager
   - DimensionPoint
+  - Ground
   layers:
   - Default
   - TransparentFX
