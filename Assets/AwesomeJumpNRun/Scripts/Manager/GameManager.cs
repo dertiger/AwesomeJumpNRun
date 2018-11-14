@@ -9,7 +9,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        player.position = spawnPosition.position;
+        var pos = spawnPosition.position;
+        pos.y += player.transform.localScale[1] / 2;
+        player.position = pos;
         player.rotation = spawnPosition.rotation;
     }
 }
