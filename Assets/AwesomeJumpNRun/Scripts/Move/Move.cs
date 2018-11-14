@@ -13,9 +13,12 @@ public abstract class Move : MonoBehaviour
     protected Rigidbody rigBody;
     protected MoveDirection moveDirection = MoveDirection.STOP;
 
+    public bool CanMove { get; set; }
+
     protected virtual void Start()
     {
         rigBody = GetComponent<Rigidbody>();
+        CanMove = true;
     }
 
     private void FixedUpdate()
@@ -36,6 +39,11 @@ public abstract class Move : MonoBehaviour
 
     private void MoveInDirection(Vector3 direction)
     {
+        if (!CanMove)
+        {
+            direction = Vector3.zero;
+        }
+
         direction = direction * CalcSpeedModifier();
         rigBody.velocity = new Vector3(direction.x, rigBody.velocity.y, direction.z);
     }

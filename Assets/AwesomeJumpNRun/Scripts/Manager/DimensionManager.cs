@@ -11,11 +11,13 @@ public class DimensionManager : MonoBehaviour
     private Vector3 position;
     private bool switchDimension;
     private float timer;
+    private Move moveOnChild;
 
     private void Start()
     {
         inputManager.ChangeDimension += OnChangeDimension;
         rotation = gameObject.transform.rotation;
+        moveOnChild = GetComponentInChildren<Move>();
     }
 
     private void OnChangeDimension()
@@ -24,6 +26,7 @@ public class DimensionManager : MonoBehaviour
         if (dimensionChangeObject != null && !switchDimension)
         {
             switchDimension = true;
+            moveOnChild.CanMove = false;
             if (Math.Abs(rotation.y - Quaternion.Euler(0, -90, 0).y) < 0.05)
             {
                 rotation *= Quaternion.Euler(0, 90, 0);
@@ -57,6 +60,7 @@ public class DimensionManager : MonoBehaviour
 
             objectTransform.rotation = rot;
             switchDimension = false;
+            moveOnChild.CanMove = true;
         }
 
         if (switchDimension)
