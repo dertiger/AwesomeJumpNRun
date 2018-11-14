@@ -2,41 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AutoMove : Move {
-    
-    protected override void Start () {
+public class AutoMove : Move
+{
+    protected override void Start()
+    {
         base.Start();
+        GetComponent<CollidedObjects>().ObjectCollided += CollidedWithObject;
+        GetComponent<CollidedObjects>().ObjectCollided += CollidedRightOrleft;
         moveDirection = MoveDirection.LEFT;
-	}
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (ColiderRightOrLeft(collision))
-        {
-            InvertMoveDirection();
-        }
     }
 
-    private void InvertMoveDirection()
+    private void CollidedRightOrleft(GameObject other)
     {
-        if (moveDirection == MoveDirection.LEFT)
+        var stepDifference = GetStepDifference(other);
+        if (stepDifference > stepSize)
         {
-            moveDirection = MoveDirection.RIGHT;
+            if (moveDirection == MoveDirection.LEFT)
+            {
+                moveDirection = MoveDirection.RIGHT;
+            }
+            else if (moveDirection == MoveDirection.RIGHT)
+            {
+                moveDirection = MoveDirection.LEFT;
+            }
         }
-        else
-        {
-            moveDirection = MoveDirection.LEFT;
-        }
-    }
-
-    private bool ColiderRightOrLeft(Collision collision)
-    {
-        var otherTransform = collision.collider.transform;
-        if (otherTransform.position.y + otherTransform.localScale.y / 2 <= transform.position.y - transform.localScale.y / 2 ||
-            otherTransform.position.y - otherTransform.localScale.y / 2 >= transform.position.y + transform.localScale.y / 2)
-        {
-            return false;
-        }
-        return true;
     }
 }

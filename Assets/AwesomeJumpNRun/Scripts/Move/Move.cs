@@ -8,9 +8,10 @@ public abstract class Move : MonoBehaviour
 
     [SerializeField] private List<int> movementModifiersInPercent = new List<int>();
 
+    [SerializeField] protected float stepSize = 0.2f;
+
     protected Rigidbody rigBody;
     protected MoveDirection moveDirection = MoveDirection.STOP;
-
 
     protected virtual void Start()
     {
@@ -48,5 +49,38 @@ public abstract class Move : MonoBehaviour
         }
 
         return speedmodifier;
+    }
+
+    protected void CollidedWithObject(GameObject other)
+    {
+        var stepDifference = GetStepDifference(other);
+
+        if (stepDifference >= 0 && stepDifference <= stepSize)
+        {
+            var gameObjectTransform = rigBody.transform;
+            var pos = gameObjectTransform.position;
+            pos.y += stepDifference;
+            if (moveDirection == MoveDirection.LEFT)
+            {
+                pos = pos - gameObjectTransform.forward * 0.05f;
+            }
+            else if (moveDirection == MoveDirection.RIGHT)
+            {
+                pos = pos + gameObjectTransform.forward * 0.05f;
+            }
+
+            gameObjectTransform.position = pos;
+        }
+    }
+
+    protected float GetStepDifference(GameObject other)
+    {
+        var ownBounds = GetComponent<Collider>().bounds;
+        var otherBounds = other.GetComponent<Collider>().bounds;
+
+        var ownBot = ownBounds.min.y;
+        var otherTop = otherBounds.max.y;
+
+        return otherTop - ownBot;
     }
 }

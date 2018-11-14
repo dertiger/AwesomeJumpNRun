@@ -123,3 +123,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 5
   movementModifiersInPercent: 
+  stepSize: 0.2

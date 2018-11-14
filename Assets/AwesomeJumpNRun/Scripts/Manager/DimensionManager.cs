@@ -10,7 +10,7 @@ public class DimensionManager : MonoBehaviour
     private Quaternion rotation;
     private Vector3 position;
     private bool switchDimension;
-    private float timer = 0;
+    private float timer;
 
     private void Start()
     {
@@ -45,6 +45,17 @@ public class DimensionManager : MonoBehaviour
         if (timer >= 1)
         {
             timer = 0;
+            var rot = objectTransform.rotation;
+            if (Math.Abs(rot.y) < 0.05)
+            {
+                rot = Quaternion.Euler(0, 0, 0);
+            }
+            else
+            {
+                rot = Quaternion.Euler(0, -90, 0);
+            }
+
+            objectTransform.rotation = rot;
             switchDimension = false;
         }
 

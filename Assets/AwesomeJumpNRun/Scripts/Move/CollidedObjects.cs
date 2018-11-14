@@ -1,19 +1,23 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CollidedObjects : MonoBehaviour
 {
-    private List<GameObject> collidedObjects;
+    public event Action<GameObject> ObjectCollided = delegate { };
+
+
+    private List<GameObject> triggeredObjects;
 
     private void Start()
     {
-        collidedObjects = new List<GameObject>();
+        triggeredObjects = new List<GameObject>();
     }
 
     public GameObject GetDimensionChangeObject()
     {
-        foreach (var collidedObject in collidedObjects)
+        foreach (var collidedObject in triggeredObjects)
         {
             if (collidedObject.CompareTag("DimensionPoint"))
             {
@@ -26,11 +30,16 @@ public class CollidedObjects : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        collidedObjects.Add(other.gameObject);
+        triggeredObjects.Add(other.gameObject);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        collidedObjects.Remove(other.gameObject);
+        triggeredObjects.Remove(other.gameObject);
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        ObjectCollided(other.gameObject);
     }
 }
