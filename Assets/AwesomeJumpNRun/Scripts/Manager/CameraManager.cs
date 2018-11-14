@@ -13,16 +13,29 @@ public class CameraManager : MonoBehaviour
     private bool delayedDescending;
     private Vector3 maxCameraDistanceVector;
     private Vector3 minCameraDistanceVector;
+
+    private float startTime;
+    private Vector3 maxLearpDist;
+    private float jurneyLength;
     
     private void Start()
     {
+        maxCameraDistanceVector = new Vector3(maxCameraDistance, cameraHeight, 0);
+        minCameraDistanceVector = new Vector3(minCameraDistance, cameraHeight, 0);
         var playerManager = GetComponentInParent<PlayeManager>();
         playerManager.PlayerJumped += OnJump;
         playerManager.PlayerDescending += OnLand;
+        startTime = Time.time;
+
+        jurneyLength = Vector3.Distance(maxCameraDistanceVector, minCameraDistanceVector);
     }
 
     private void FixedUpdate()
     {
+        float distCovered = (Time.time - startTime) * 10;
+
+        float fractJurney = distCovered / jurneyLength;
+
         maxCameraDistanceVector = new Vector3(maxCameraDistance, cameraHeight, 0);
         minCameraDistanceVector = new Vector3(minCameraDistance, cameraHeight, 0);
         if (jumping)
@@ -31,12 +44,17 @@ public class CameraManager : MonoBehaviour
         }
         else if (!delayedDescending)
         {
-           gameObject.transform.localPosition = Vector3.Lerp(gameObject.transform.localPosition, minCameraDistanceVector, cameraChangeRate * Time.deltaTime);
+           gameObject.transform.localPosition = Vector3.Lerp(maxLearpDist, minCameraDistanceVector, fractJurney);
         }
     }
 
     private void OnJump()
     {
+        if (!jumping)
+        {
+            startTime = Time.time;
+            jurneyLength = Vector3.Distance(minCameraDistanceVector, maxCameraDistanceVector);
+        }
         jumping = true;
     }
 
@@ -44,6 +62,7 @@ public class CameraManager : MonoBehaviour
     {
         if (jumping) {
             StartCoroutine(DelayedLanding());
+            maxLearpDist = gameObject.transform.localPosition;
         }
         jumping = false;
     }
@@ -51,7 +70,9 @@ public class CameraManager : MonoBehaviour
     private IEnumerator DelayedLanding()
     {
         delayedDescending = true;
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
+        startTime = Time.time;
+        jurneyLength = Vector3.Distance(maxLearpDist, minCameraDistanceVector);
         delayedDescending = false;
     }
 }
