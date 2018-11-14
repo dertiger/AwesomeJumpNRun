@@ -42,7 +42,7 @@ public class DimensionManager : MonoBehaviour
         }
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         var objectTransform = gameObject.transform;
         if (timer >= 1)
