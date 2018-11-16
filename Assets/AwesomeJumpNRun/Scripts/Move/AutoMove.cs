@@ -12,9 +12,9 @@ public class AutoMove : Move
         moveDirection = MoveDirection.LEFT;
     }
 
-    private void CollidedRightOrleft(GameObject other)
+    private void CollidedRightOrleft(Collision collision)
     {
-        var stepDifference = GetStepDifference(other);
+        var stepDifference = GetStepDifference(collision);
         if (stepDifference > stepSize)
         {
             if (moveDirection == MoveDirection.LEFT)

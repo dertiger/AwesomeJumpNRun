@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CollidedObjects : MonoBehaviour
 {
-    public event Action<GameObject> ObjectCollided = delegate { };
+    public event Action<Collision> ObjectCollided = delegate { };
 
 
     private List<GameObject> triggeredObjects;
@@ -40,6 +40,6 @@ public class CollidedObjects : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        ObjectCollided(other.gameObject);
+        ObjectCollided(other);
     }
 }

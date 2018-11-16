@@ -59,9 +59,9 @@ public abstract class Move : MonoBehaviour
         return speedmodifier;
     }
 
-    protected void CollidedWithObject(GameObject other)
+    protected void CollidedWithObject(Collision collision)
     {
-        var stepDifference = GetStepDifference(other);
+        var stepDifference = GetStepDifference(collision);
 
         if (stepDifference >= 0 && stepDifference <= stepSize)
         {
@@ -81,10 +81,10 @@ public abstract class Move : MonoBehaviour
         }
     }
 
-    protected float GetStepDifference(GameObject other)
+    protected float GetStepDifference(Collision collision)
     {
         var ownBounds = GetComponent<Collider>().bounds;
-        var otherBounds = other.GetComponent<Collider>().bounds;
+        var otherBounds = collision.collider.bounds;
 
         var ownBot = ownBounds.min.y;
         var otherTop = otherBounds.max.y;
