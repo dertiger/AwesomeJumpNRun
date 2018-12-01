@@ -9,10 +9,25 @@ public class PlayeManager : MonoBehaviour
     public event Action PlayerDescending = delegate { };
 
     private Rigidbody rigbody;
+    private Health playerHealth;
 
     void Start()
     {
         rigbody = GetComponent<Rigidbody>();
+        InitializePlayerParameters();
+    }
+
+    private void InitializePlayerParameters()
+    {
+        playerHealth = GetComponentInChildren<Health>();
+        playerHealth.OnDied += OnDied;
+    }
+
+    private void OnDied()
+    {
+        //TODO: Next charakter
+        //TODO: this Charakter Dies
+        throw new NotImplementedException();
     }
 
     private void FixedUpdate()
@@ -25,5 +40,10 @@ public class PlayeManager : MonoBehaviour
         {
             PlayerJumped();
         }
+    }
+
+    private void TakeDamage(int damageAmount)
+    {
+        playerHealth.TakeDamage(damageAmount);
     }
 }
