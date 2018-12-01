@@ -12,4 +12,5 @@ public class KeyOption : ScriptableObject
     public KeyCode CHARACTER2 = KeyCode.W;
     public KeyCode CHARACTER3 = KeyCode.E;
     public KeyCode ENTERDIMENSION = KeyCode.F;
+    public KeyCode SHOOT = KeyCode.D;
 }

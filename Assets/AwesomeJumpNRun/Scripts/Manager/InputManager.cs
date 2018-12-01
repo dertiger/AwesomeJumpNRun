@@ -9,6 +9,7 @@ public class InputManager : MonoBehaviour
     public event Action<MoveDirection> Move = delegate { };
     public event Action ChangeDimension = delegate { };
     public event Action<Characters> SwitchedCharacter = delegate { };
+    public event Action Shoot = delegate { };
 
     [SerializeField] KeyOption keyOption;
 
@@ -19,13 +20,17 @@ public class InputManager : MonoBehaviour
         {
             Jump();
         }
-
-        CheckMove();
-        CheckCharacters();
         if (Input.GetKeyDown(keyOption.ENTERDIMENSION))
         {
             ChangeDimension();
         }
+        if (Input.GetKey(keyOption.SHOOT))
+        {
+            Shoot();
+        }
+        CheckMove();
+        CheckCharacters();
+
     }
 
     private void CheckCharacters()
