@@ -24,7 +24,6 @@ public class CollidedObjects : MonoBehaviour
                 return collidedObject;
             }
         }
-
         return null;
     }
 

@@ -17,10 +17,10 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
-  - 
-  - 
-  - 
+  - Enemy
+  - Player
+  - EnemyShoot
+  - PlayerShoot
   - 
   - 
   - 

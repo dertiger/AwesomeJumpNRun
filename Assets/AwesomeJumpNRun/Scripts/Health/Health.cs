@@ -16,6 +16,11 @@ public class Health : MonoBehaviour
         currentHp = maxHp;
     }
 
+    public void TakeOneHit()
+    {
+        TakeDamage(currentHp);
+    }
+
     public void TakeDamage(int damageAmount)
     {
         currentHp -= damageAmount;
