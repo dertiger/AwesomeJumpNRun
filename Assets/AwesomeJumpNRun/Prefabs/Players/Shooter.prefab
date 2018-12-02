@@ -55,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1248939494232070}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.97}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.9, y: 1, z: 0.9}
   m_Children:
   - {fileID: 4643259112623408}
@@ -142,7 +142,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootPosition: {fileID: 4643259112623408}
   shoot: {fileID: 1655686361679856, guid: 6d82c1f930d3ba742b3e0ab6bea2307f, type: 2}
-  shootHolder: {fileID: 0}
   shootDelaySec: 1
 --- !u!114 &114637078011077788
 MonoBehaviour:
