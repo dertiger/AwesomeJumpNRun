@@ -14,26 +14,32 @@ public abstract class Move : MonoBehaviour
     protected MoveDirection moveDirection = MoveDirection.STOP;
 
     public bool CanMove { get; set; }
+    
+    protected Transform objectTransform;
+    private MoveDirection oldDirection;
 
     protected virtual void Start()
     {
+        oldDirection = MoveDirection.RIGHT;
+        objectTransform = GetComponent<Transform>();
         rigBody = GetComponent<Rigidbody>();
         CanMove = true;
     }
 
     private void FixedUpdate()
     {
-        if (moveDirection == MoveDirection.RIGHT)
-        {
-            MoveInDirection(transform.forward);
-        }
-        else if (moveDirection == MoveDirection.LEFT)
-        {
-            MoveInDirection(-transform.forward);
-        }
-        else if (moveDirection == MoveDirection.STOP)
+        if (moveDirection == MoveDirection.STOP)
         {
             MoveInDirection(Vector3.zero);
+        }
+        else
+        {
+            if (oldDirection != moveDirection)
+            {
+                objectTransform.rotation *= Quaternion.Euler(0, 180, 0);
+                oldDirection = moveDirection;
+            }
+            MoveInDirection(transform.forward);
         }
     }
 

@@ -9,7 +9,6 @@ public class InputMove : Move
         base.Start();
         rigBody = GetComponentInParent<Rigidbody>();
         GetComponentInParent<CollidedObjects>().ObjectCollided += CollidedWithObject;
-        //TODO: why is the InputManager here found via FindGameObjectWithTag and not inserted?
         GameObject.FindGameObjectWithTag("InputManager").GetComponent<InputManager>().Move += OnMove;
     }
 
