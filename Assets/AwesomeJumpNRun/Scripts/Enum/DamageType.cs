@@ -5,5 +5,6 @@ using UnityEngine;
 public enum DamageType{
     SHOOT,
     SWORD,
-    JUMP
+    JUMP,
+    MONSTER
 }

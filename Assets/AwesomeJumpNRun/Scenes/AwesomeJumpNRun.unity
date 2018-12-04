@@ -11786,8 +11786,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1879235584}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 11.5, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 11, z: -4.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 41681239}
@@ -11806,6 +11806,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94e1ae45e7bf6e14791a047a6a47634f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uIManager: {fileID: 2007992852}
+  healthSOs:
+  - {fileID: 11400000, guid: a50a65911ade51e4dbb1d3814cb819ec, type: 2}
+  - {fileID: 11400000, guid: 3e686d35693331144936f4227d3a931e, type: 2}
+  - {fileID: 11400000, guid: 904b286b2db77f340a477cf42d1834fd, type: 2}
 --- !u!54 &1879235587
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12726,6 +12731,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameTime: {fileID: 112592943}
   gameTimeHandler: {fileID: 11400000, guid: bb63974006bd396448dae25913d44ad6, type: 2}
+  health: {fileID: 453319069}
 --- !u!1001 &2014916972
 Prefab:
   m_ObjectHideFlags: 0

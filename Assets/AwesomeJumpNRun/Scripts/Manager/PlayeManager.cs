@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayeManager : MonoBehaviour
 {
+    [SerializeField] private UIManager uIManager;
+    [SerializeField] private List<HealthSO> healthSOs;
     public event Action PlayerJumped = delegate { };
     public event Action PlayerDescending = delegate { };
 
@@ -15,12 +17,14 @@ public class PlayeManager : MonoBehaviour
     {
         rigbody = GetComponent<Rigidbody>();
         InitializePlayerParameters();
+        uIManager.setHealthSO(healthSOs[1]);
     }
 
     private void InitializePlayerParameters()
     {
         playerHealth = GetComponentInChildren<Health>();
         playerHealth.OnDied += OnDied;
+
     }
 
     private void OnDied()
