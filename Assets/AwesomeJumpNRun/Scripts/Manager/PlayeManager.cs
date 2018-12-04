@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayeManager : MonoBehaviour
 {
+    [SerializeField] private PlayerPosition playerPosition;
     [SerializeField] private UIManager uIManager;
     [SerializeField] private List<HealthSO> healthSOs;
     public event Action PlayerJumped = delegate { };
@@ -24,7 +25,6 @@ public class PlayeManager : MonoBehaviour
     {
         playerHealth = GetComponentInChildren<Health>();
         playerHealth.OnDied += OnDied;
-
     }
 
     private void OnDied()
@@ -32,6 +32,11 @@ public class PlayeManager : MonoBehaviour
         //TODO: Next charakter
         //TODO: this Charakter Dies
         throw new NotImplementedException();
+    }
+
+    private void Update()
+    {
+        playerPosition.playerPosition = transform.position;
     }
 
     private void FixedUpdate()
