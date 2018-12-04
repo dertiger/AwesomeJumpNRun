@@ -5972,8 +5972,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 54200535203628436, guid: 7ee37eef71c73444ea3963e3277bf96a, type: 2}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ee37eef71c73444ea3963e3277bf96a, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &963791070
@@ -12874,26 +12873,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4796909931680858, guid: 6db7c3a1823c3c147bc64c813c6d1ef3,
     type: 2}
   m_PrefabInternal: {fileID: 1981998702}
---- !u!1 &1982938287 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1166147768871150, guid: 7ee37eef71c73444ea3963e3277bf96a,
-    type: 2}
-  m_PrefabInternal: {fileID: 938742782}
---- !u!54 &1982938288
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1982938287}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &2007992850
 GameObject:
   m_ObjectHideFlags: 0
