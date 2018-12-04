@@ -296,6 +296,7 @@ GameObject:
   - component: {fileID: 39393981}
   - component: {fileID: 39393980}
   - component: {fileID: 39393979}
+  - component: {fileID: 39393985}
   - component: {fileID: 39393978}
   m_Layer: 10
   m_Name: Shooter
@@ -318,7 +319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootPosition: {fileID: 360402900}
   shoot: {fileID: 1655686361679856, guid: 6d82c1f930d3ba742b3e0ab6bea2307f, type: 2}
-  shootDelaySec: 1
+  shootDelaySec: 0.2
 --- !u!114 &39393979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,6 +419,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 39393977}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &39393985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 39393977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42854ac1b571b91409d0603615638123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &41681239
 Transform:
   m_ObjectHideFlags: 0
@@ -11075,6 +11087,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4668705270921492, guid: c64b55444d544c445b3aed4a0a121d49,
     type: 2}
   m_PrefabInternal: {fileID: 1683804358}
+--- !u!1 &1691398470 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1022056392199546, guid: bb2cbb0863054044197f07ea2b500ad1,
+    type: 2}
+  m_PrefabInternal: {fileID: 1965385694}
+--- !u!114 &1691398471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1691398470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c00d682523406546a816e00a9555f0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1706947696 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4152733142070162, guid: 5448e18ccbc1f274ab6cc0c0e09372ab,

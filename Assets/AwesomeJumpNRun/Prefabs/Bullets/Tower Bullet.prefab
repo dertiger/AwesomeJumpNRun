@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 135650372373534956}
   - component: {fileID: 54800843486695886}
   - component: {fileID: 114227918614645436}
+  - component: {fileID: 114508168230163752}
   m_Layer: 11
   m_Name: Tower Bullet
   m_TagString: Untagged
@@ -113,6 +114,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 400
+--- !u!114 &114508168230163752
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1926621007651084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e501afd140ef7d4fbba0da3b16a50d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 20
+  damageType: 0
 --- !u!135 &135650372373534956
 SphereCollider:
   m_ObjectHideFlags: 1

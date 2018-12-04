@@ -53,7 +53,7 @@ public abstract class Health : MonoBehaviour
         OnHpPercentChange(HpPercent);
     }
 
-    private void Die()
+    protected virtual void Die()
     {
         OnDied();
     }
