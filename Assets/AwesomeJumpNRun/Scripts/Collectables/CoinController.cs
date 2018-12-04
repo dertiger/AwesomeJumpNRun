@@ -2,17 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinController : MonoBehaviour {
+public class CoinController : MonoBehaviour
+{
 
     [SerializeField]
     private CoinData coinData;
 
+    private bool collected;
+
+    private void Update()
+    {
+        if (collected)
+        {
+            transform.Rotate(new Vector3(0, 30, 0) * Time.deltaTime);
+        }
+    }
 
     private void OnTriggerEnter()
     {
-        //Debug.Log(coinData.Value); //To Get the Value of the Coin
-        transform.Rotate(new Vector3(0, 30, 0) * Time.deltaTime); //This doesnt work idk why, trieed for 1h to fix, it just doesnt want to rotate, but I give up. If it doesnt want to move it shouldnt
-        //Destroy(this.gameObject); //Deactivated for test Rotation 
+        Debug.Log(coinData.Value); //To Get the Value of the Coin
+        StartCoroutine(lateDestroy());
     }
 
+    private IEnumerator lateDestroy()
+    {
+        collected = true;
+        yield return new WaitForSeconds(2);
+        Destroy(this.gameObject);
+    }
 }
