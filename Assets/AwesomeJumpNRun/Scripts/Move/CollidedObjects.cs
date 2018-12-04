@@ -7,7 +7,6 @@ public class CollidedObjects : MonoBehaviour
 {
     public event Action<Collision> ObjectCollided = delegate { };
 
-
     private List<GameObject> triggeredObjects;
 
     private void Start()

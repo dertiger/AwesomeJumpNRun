@@ -3,31 +3,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public abstract class Health : MonoBehaviour
 {
-    [SerializeField] private int maxHp = 100;
+    [SerializeField] protected int maxHp = 100;
+
     public event Action OnDied = delegate { };
     public event Action<float> OnHpPercentChange = delegate { };
 
     private int currentHp;
 
-    private void Start()
+    protected virtual int CurrentHp
     {
-        currentHp = maxHp;
+        get
+        {
+            return currentHp;
+        }
+
+        set
+        {
+            currentHp = value;
+        }
+    }
+
+    protected virtual void Start()
+    {
+        CurrentHp = maxHp;
     }
 
     public void TakeOneHit()
     {
-        TakeDamage(currentHp);
+        TakeDamage(CurrentHp);
     }
 
     public void TakeDamage(int damageAmount)
     {
-        currentHp -= damageAmount;
+        CurrentHp -= damageAmount;
 
         HpPercentChange();
 
-        if (currentHp <= 0)
+        if (CurrentHp <= 0)
         {
             Die();
         }
@@ -35,7 +49,7 @@ public class Health : MonoBehaviour
 
     private void HpPercentChange()
     {
-        float HpPercent = (float)currentHp / (float)maxHp;
+        float HpPercent = (float)CurrentHp / (float)maxHp;
         OnHpPercentChange(HpPercent);
     }
 
