@@ -14,7 +14,8 @@ public class CoinController : MonoBehaviour
     {
         if (collected)
         {
-            transform.Rotate(new Vector3(0, 30, 0) * Time.deltaTime);
+            transform.Rotate(new Vector3(0, 30, 0) * 20 * Time.deltaTime);
+            transform.Translate(new Vector3(0, 1, 0) * 2 * Time.deltaTime);
         }
     }
 
@@ -27,7 +28,7 @@ public class CoinController : MonoBehaviour
     private IEnumerator lateDestroy()
     {
         collected = true;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         Destroy(this.gameObject);
     }
 }
