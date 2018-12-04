@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114751195267616532}
   - component: {fileID: 114696154577918200}
   - component: {fileID: 114637078011077788}
+  - component: {fileID: 114667741118763360}
   - component: {fileID: 114193806392950040}
   m_Layer: 10
   m_Name: Shooter
@@ -56,7 +57,7 @@ Transform:
   m_GameObject: {fileID: 1248939494232070}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 1, z: 0.9}
+  m_LocalScale: {x: 0.9, y: 0.5, z: 0.9}
   m_Children:
   - {fileID: 4643259112623408}
   m_Father: {fileID: 0}
@@ -142,7 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootPosition: {fileID: 4643259112623408}
   shoot: {fileID: 1655686361679856, guid: 6d82c1f930d3ba742b3e0ab6bea2307f, type: 2}
-  shootDelaySec: 1
+  shootDelaySec: 0.2
 --- !u!114 &114637078011077788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -151,10 +152,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1248939494232070}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dba5947bc8aa0e46a786527b2d9f29c, type: 3}
+  m_Script: {fileID: 11500000, guid: 91a0036b10eeb1745b25d3e1d478a8f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 100
+  healthSO: {fileID: 11400000, guid: 3e686d35693331144936f4227d3a931e, type: 2}
+--- !u!114 &114667741118763360
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1248939494232070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42854ac1b571b91409d0603615638123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114696154577918200
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -166,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffe43ba9aeb543b4093899e19eea4071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpHeight: 400
+  jumpHeight: 450
 --- !u!114 &114751195267616532
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -178,6 +191,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9126b815e74a9f42afb2ef42f07f354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 3
+  movementSpeed: 4
   movementModifiersInPercent: 
   stepSize: 0.2
