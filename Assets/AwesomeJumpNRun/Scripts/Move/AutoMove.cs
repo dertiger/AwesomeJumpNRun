@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AutoMove : Move
 {
+    [SerializeField] private int ingnoreLayer;
+
     protected override void Start()
     {
         base.Start();
@@ -17,13 +19,16 @@ public class AutoMove : Move
         var stepDifference = GetStepDifference(collision);
         if (stepDifference > stepSize)
         {
-            if (moveDirection == MoveDirection.LEFT)
+            if (!LayerMask.LayerToName(collision.collider.gameObject.layer).Equals("PlayerShoot"))
             {
-                moveDirection = MoveDirection.RIGHT;
-            }
-            else if (moveDirection == MoveDirection.RIGHT)
-            {
-                moveDirection = MoveDirection.LEFT;
+                if (moveDirection == MoveDirection.LEFT)
+                {
+                    moveDirection = MoveDirection.RIGHT;
+                }
+                else if (moveDirection == MoveDirection.RIGHT)
+                {
+                    moveDirection = MoveDirection.LEFT;
+                }
             }
         }
     }
