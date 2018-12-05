@@ -19,9 +19,5 @@ public abstract class DamageManager : MonoBehaviour
             health.TakeDamage(damage.DamageAmount);
             Debug.Log("took Damage");
         }
-        else
-        {
-            Debug.Log("damage = NULL");
-        }
     }
 }
