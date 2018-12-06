@@ -4,23 +4,26 @@ using UnityEngine;
 
 public class LightSwitchManager : MonoBehaviour {
 
-    public Light lt;
+    [SerializeField]
+    public Light mylight;
+    public GameObject mydirectionLight; 
+    
 
     private void OnTriggerEnter(Collider other)
     {
-        
-        lt = GetComponent<Light>();
-        lt.color -= (Color.red / 2.0f) * Time.deltaTime;
-
+        mydirectionLight = GameObject.Find("Directional Light");
         if (other.gameObject.CompareTag("Player"))
         {
             if ((other.gameObject.transform.position.z) < (this.gameObject.transform.position.z))
             {
-                Destroy(other.gameObject);
+                mylight.GetComponent<Light>().intensity = 0.0f;
+                mydirectionLight.SetActive(false);
+                RenderSettings.ambientLight = Color.black;
             }
             else
             {
-                //light up
+                mylight.GetComponent<Light>().intensity = 1.0f;
+                mydirectionLight.SetActive(true);
             }
         }
     }
