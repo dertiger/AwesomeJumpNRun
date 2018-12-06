@@ -13305,6 +13305,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114751195267616532, guid: 74555de4f4b7be14aa7bfd197d0bc36b,
+        type: 2}
+      propertyPath: movementSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114696154577918200, guid: 74555de4f4b7be14aa7bfd197d0bc36b,
+        type: 2}
+      propertyPath: jumpHeight
+      value: 300
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74555de4f4b7be14aa7bfd197d0bc36b, type: 2}
   m_IsPrefabAsset: 0
