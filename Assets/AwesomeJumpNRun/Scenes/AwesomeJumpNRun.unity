@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2313,6 +2313,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 391136290}
+  - component: {fileID: 391136291}
   m_Layer: 0
   m_Name: Coins
   m_TagString: Untagged
@@ -2352,6 +2353,18 @@ Transform:
   m_Father: {fileID: 553311036}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &391136291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 391136289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 410a88ebfaa29ec4d8b44a4d08fe04dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: {fileID: 11400000, guid: 4a748afb23af696499e4efe298c04282, type: 2}
 --- !u!1001 &399680068
 Prefab:
   m_ObjectHideFlags: 0
@@ -9618,6 +9631,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1533953376}
+  - component: {fileID: 1533953377}
   m_Layer: 0
   m_Name: Keys
   m_TagString: Untagged
@@ -9642,6 +9656,18 @@ Transform:
   m_Father: {fileID: 553311036}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1533953377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1533953375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ff44ecc925cd5458274536a85339ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keys: {fileID: 11400000, guid: 395e748c10581b9419d9b1fa570b95c1, type: 2}
 --- !u!1001 &1554676935
 Prefab:
   m_ObjectHideFlags: 0
@@ -12520,6 +12546,10 @@ MonoBehaviour:
   gameTime: {fileID: 112592943}
   gameTimeHandler: {fileID: 11400000, guid: bb63974006bd396448dae25913d44ad6, type: 2}
   health: {fileID: 453319069}
+  pointsSO: {fileID: 11400000, guid: 4a748afb23af696499e4efe298c04282, type: 2}
+  points: {fileID: 1441388474}
+  keysSO: {fileID: 11400000, guid: 395e748c10581b9419d9b1fa570b95c1, type: 2}
+  keys: {fileID: 1930974642}
 --- !u!1001 &2014916972
 Prefab:
   m_ObjectHideFlags: 0

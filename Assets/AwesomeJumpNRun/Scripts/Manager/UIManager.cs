@@ -10,10 +10,20 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameTime gameTimeHandler;
     [SerializeField] private TextMeshProUGUI health;
 
+    [SerializeField] private Points pointsSO;
+    [SerializeField] private TextMeshProUGUI points;
+
+    [SerializeField] private Keys keysSO;
+    [SerializeField] private TextMeshProUGUI keys;
+
     private HealthSO healthSO;
-	// Update is called once per frame
-	private void FixedUpdate () {
-	    gameTime.text = (gameTimeHandler.CurrentGameTime / 60) + ":" + (gameTimeHandler.CurrentGameTime % 60).ToString("00");
+
+    private void FixedUpdate()
+    {
+        gameTime.text = (gameTimeHandler.CurrentGameTime / 60) + ":" +
+                        (gameTimeHandler.CurrentGameTime % 60).ToString("00");
+        points.text = "Points: " + pointsSO.CurrentPoints;
+        keys.text = keysSO.CurrentKeys + "/" + keysSO.MaxKeys + " Keys";
         if (healthSO != null)
         {
             health.text = healthSO.AcctualHealth + "/" + healthSO.MaxHealth + "LP";

@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class CoinController : MonoBehaviour
 {
-
-    [SerializeField]
-    private CoinData coinData;
+    [SerializeField] private CoinData coinData;
 
     private bool collected;
 
@@ -19,9 +17,9 @@ public class CoinController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter()
+    private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(coinData.Value); //To Get the Value of the Coin
+        GetComponentInParent<CoinCollectedHandler>().CoinGotCollected(coinData.Value);
         StartCoroutine(lateDestroy());
     }
 
