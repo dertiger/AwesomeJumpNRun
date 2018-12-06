@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeyController : MonoBehaviour {
-
+public class KeyController : MonoBehaviour
+{
     private bool collected;
 
     private void Update()
@@ -17,6 +17,7 @@ public class KeyController : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
+        GetComponentInParent<KeyCollectedHandler>().KeyGotCollected();
         StartCoroutine(lateDestroy());
     }
 
