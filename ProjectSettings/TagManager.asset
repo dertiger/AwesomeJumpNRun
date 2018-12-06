@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - BulletHolder
   - Light
+  - Triggers
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - PlayerShoot
   - Collectable
   - DimensionShiftPointBlocker
-  - 
+  - Triggers
   - 
   - 
   - 

@@ -4169,7 +4169,7 @@ GameObject:
   - component: {fileID: 656930980}
   - component: {fileID: 656930983}
   - component: {fileID: 656930979}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: LightSwitch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13313,7 +13313,7 @@ Prefab:
     - target: {fileID: 114696154577918200, guid: 74555de4f4b7be14aa7bfd197d0bc36b,
         type: 2}
       propertyPath: jumpHeight
-      value: 300
+      value: 450
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74555de4f4b7be14aa7bfd197d0bc36b, type: 2}
