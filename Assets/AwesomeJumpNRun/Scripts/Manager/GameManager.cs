@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerManager playerManager;
     [SerializeField] private InputManager inputManager;
 
+    [SerializeField] private BossRoomEnter bossRoomEnter;
+
     private void Start()
     {
         var pos = spawnPosition.position;
@@ -30,6 +32,13 @@ public class GameManager : MonoBehaviour
 
         playerManager.PlayerDied += OnPlayerDied;
         inputManager.RestartGame += OnRestartGame;
+
+        bossRoomEnter.EnterBossroom += OnEnterBossroom;
+    }
+
+    private void OnEnterBossroom()
+    {
+        PlayerShouldRestartGame();
     }
 
     private void OnRestartGame()

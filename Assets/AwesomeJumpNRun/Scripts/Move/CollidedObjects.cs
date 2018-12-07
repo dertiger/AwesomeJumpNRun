@@ -36,6 +36,19 @@ public class CollidedObjects : MonoBehaviour
         return null;
     }
 
+    public GameObject GetBossRoomEnterPoint()
+    {
+        foreach (var collidedObject in triggeredObjects)
+        {
+            if (collidedObject.CompareTag("BossDoorTrigger"))
+            {
+                return collidedObject;
+            }
+        }
+
+        return null;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         triggeredObjects.Add(other.gameObject);
