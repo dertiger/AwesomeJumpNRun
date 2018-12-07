@@ -10,6 +10,7 @@ TagManager:
   - BulletHolder
   - Light
   - Triggers
+  - CaveWall
   layers:
   - Default
   - TransparentFX
