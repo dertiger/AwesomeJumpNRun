@@ -14,7 +14,7 @@ public class GameTime : ScriptableObject
         set
         {
             gameTime = value;
-            if (gameTime == 0)
+            if (gameTime <= 0)
             {
                 GameTimeExpired();
             }

@@ -26,6 +26,11 @@ public class UIManager : MonoBehaviour
         gameManager.ShouldRestartGame += OnShouldRestartGame;
     }
 
+    private void OnDestroy()
+    {
+        gameManager.ShouldRestartGame -= OnShouldRestartGame;
+    }
+
     private void OnShouldRestartGame()
     {
         shouldRestart.enabled = true;
