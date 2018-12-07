@@ -2153,8 +2153,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 333241539}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -46.26, y: 21.25, z: 19}
-  m_LocalScale: {x: 1, y: 1.5, z: 1}
+  m_LocalPosition: {x: -46.26, y: 21.72, z: 19}
+  m_LocalScale: {x: 1, y: 2.21115, z: 1.5786}
   m_Children: []
   m_Father: {fileID: 1457141991}
   m_RootOrder: 0
@@ -8019,7 +8019,7 @@ GameObject:
   - component: {fileID: 1154084527}
   - component: {fileID: 1154084526}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Boss Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8032,8 +8032,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1154084524}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -46.26, y: 21.25, z: 18.26}
-  m_LocalScale: {x: 0.1, y: 1.5, z: 1}
+  m_LocalPosition: {x: -46.26, y: 21.64, z: 18.26}
+  m_LocalScale: {x: 0.1, y: 2.33625, z: 1.6805}
   m_Children: []
   m_Father: {fileID: 1457141991}
   m_RootOrder: 1
@@ -8065,7 +8065,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 7f134c0af95522140978112aec60fda4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
