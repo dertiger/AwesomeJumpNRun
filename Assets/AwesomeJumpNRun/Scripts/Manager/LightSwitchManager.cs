@@ -26,8 +26,6 @@ public class LightSwitchManager : MonoBehaviour {
             GameObject.Find("CaveWall2").transform.localScale = new Vector3(48.0f, 36.0f, 0.5f);
             GameObject.Find("CaveWall3").transform.localScale = new Vector3(0.0001f, 27.0f, 20f);
 
-            //Make Collectables Glow
-
         }
     }
 
@@ -46,8 +44,6 @@ public class LightSwitchManager : MonoBehaviour {
             GameObject.Find("CaveWall1").transform.localScale = new Vector3(0.0f, 0.0f, 0.0f);
             GameObject.Find("CaveWall2").transform.localScale = new Vector3(0.0f, 0.0f, 0.0f);
             GameObject.Find("CaveWall3").transform.localScale = new Vector3(0.0f, 0.0f, 0.0f);
-
-            //Make Collectables unglow
         }
     }
 }
