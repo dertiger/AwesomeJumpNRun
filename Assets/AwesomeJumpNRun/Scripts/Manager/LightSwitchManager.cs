@@ -21,7 +21,7 @@ public class LightSwitchManager : MonoBehaviour {
 
         if (other.gameObject.CompareTag("Player"))
         {
-            mylight.GetComponent<Light>().intensity = 1.0f;
+            mylight.GetComponent<Light>().intensity = 3.0f;
         }
     }
 }
