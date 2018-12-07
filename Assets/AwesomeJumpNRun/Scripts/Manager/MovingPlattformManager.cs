@@ -18,7 +18,6 @@ public class MovingPlattformManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //Move
-        
         switch (direction) {
             case "x": move = new Vector3(moveSpeed, 0, 0) * Time.deltaTime;
                 break;
@@ -39,6 +38,9 @@ public class MovingPlattformManager : MonoBehaviour {
 	}
 
     void OnCollisionEnter(Collision collision) {
-        collided = !collided;
+        if (!collision.gameObject.CompareTag("Player"))
+        {
+            collided = !collided;
+        }
     }
 }
