@@ -10,27 +10,39 @@ public class InputManager : MonoBehaviour
     public event Action ChangeDimension = delegate { };
     public event Action<Characters> SwitchedCharacter = delegate { };
     public event Action Shoot = delegate { };
+    public event Action RestartGame = delegate { };
 
     [SerializeField] KeyOption keyOption;
 
-    // Update is called once per frame
+    private bool playerHasToRestart;
+
     private void Update()
     {
-        if (Input.GetKeyDown(keyOption.JUMPKEY))
+        if (Input.GetKeyDown(keyOption.RESTART))
         {
-            Jump();
+            RestartGame();
+            playerHasToRestart = false;
         }
-        if (Input.GetKeyDown(keyOption.ENTERDIMENSION))
+        else if (!playerHasToRestart)
         {
-            ChangeDimension();
-        }
-        if (Input.GetKey(keyOption.SHOOT))
-        {
-            Shoot();
-        }
-        CheckMove();
-        CheckCharacters();
+            if (Input.GetKeyDown(keyOption.JUMPKEY))
+            {
+                Jump();
+            }
 
+            if (Input.GetKeyDown(keyOption.ENTERDIMENSION))
+            {
+                ChangeDimension();
+            }
+
+            if (Input.GetKey(keyOption.SHOOT))
+            {
+                Shoot();
+            }
+
+            CheckMove();
+            CheckCharacters();
+        }
     }
 
     private void CheckCharacters()
@@ -63,5 +75,10 @@ public class InputManager : MonoBehaviour
         {
             Move(MoveDirection.STOP);
         }
+    }
+
+    public void ForcePlayerToRestart()
+    {
+        playerHasToRestart = true;
     }
 }

@@ -3,22 +3,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayeManager : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
     [SerializeField] private PlayerPosition playerPosition;
     [SerializeField] private UIManager uIManager;
+    [SerializeField] private OutOfMap outOfMap;
+
     [SerializeField] private List<HealthSO> healthSOs;
     public event Action PlayerJumped = delegate { };
     public event Action PlayerDescending = delegate { };
+    public event Action PlayerDied = delegate { };
 
     private Rigidbody rigbody;
     private Health playerHealth;
 
-    void Start()
+    private void Start()
     {
         rigbody = GetComponent<Rigidbody>();
         InitializePlayerParameters();
         uIManager.setHealthSO(healthSOs[1]);
+
+        outOfMap.PlayerFellOutOfMap += OnPlayerFellOutOfMap;
+    }
+
+    private void OnPlayerFellOutOfMap()
+    {
+        rigbody.isKinematic = true;
+        PlayerDied();
     }
 
     private void InitializePlayerParameters()
@@ -31,7 +42,8 @@ public class PlayeManager : MonoBehaviour
     {
         //TODO: Next charakter
         //TODO: this Charakter Dies
-        throw new NotImplementedException();
+        rigbody.isKinematic = true;
+        PlayerDied();
     }
 
     private void Update()
@@ -41,7 +53,7 @@ public class PlayeManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(rigbody.velocity.y <= 0)
+        if (rigbody.velocity.y <= 0)
         {
             PlayerDescending();
         }

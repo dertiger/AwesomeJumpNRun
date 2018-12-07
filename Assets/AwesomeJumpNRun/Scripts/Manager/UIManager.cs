@@ -16,7 +16,20 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Keys keysSO;
     [SerializeField] private TextMeshProUGUI keys;
 
+    [SerializeField] private GameManager gameManager;
+    [SerializeField] private TextMeshProUGUI shouldRestart;
+
     private HealthSO healthSO;
+
+    private void Start()
+    {
+        gameManager.ShouldRestartGame += OnShouldRestartGame;
+    }
+
+    private void OnShouldRestartGame()
+    {
+        shouldRestart.enabled = true;
+    }
 
     private void FixedUpdate()
     {

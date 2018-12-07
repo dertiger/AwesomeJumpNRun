@@ -22,7 +22,7 @@ public class CameraManager : MonoBehaviour
     {
         maxCameraDistanceVector = new Vector3(maxCameraDistance, cameraHeight, 0);
         minCameraDistanceVector = new Vector3(minCameraDistance, cameraHeight, 0);
-        var playerManager = GetComponentInParent<PlayeManager>();
+        var playerManager = GetComponentInParent<PlayerManager>();
         playerManager.PlayerJumped += OnJump;
         playerManager.PlayerDescending += OnLand;
         startTime = Time.time;
