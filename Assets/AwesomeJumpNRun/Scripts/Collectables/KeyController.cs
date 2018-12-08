@@ -13,6 +13,10 @@ public class KeyController : MonoBehaviour
             transform.Rotate(new Vector3(0, 30, 0) * 20 * Time.deltaTime);
             transform.Translate(new Vector3(0, 1, 0) * 2 * Time.deltaTime);
         }
+        else
+        {
+            transform.Rotate(new Vector3(0, 30, 0) * Time.deltaTime);
+        }
     }
 
     private void OnTriggerEnter(Collider other)

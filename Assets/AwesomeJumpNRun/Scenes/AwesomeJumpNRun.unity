@@ -5566,7 +5566,7 @@ GameObject:
   - component: {fileID: 857123019}
   - component: {fileID: 857123018}
   m_Layer: 16
-  m_Name: CaveWall2
+  m_Name: CaveWall (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
