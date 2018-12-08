@@ -2885,7 +2885,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 20, y: 10}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &453319069
 MonoBehaviour:
@@ -4373,8 +4373,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 656930978}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19, y: 0, z: 57}
-  m_LocalScale: {x: 44, y: 13, z: 50}
+  m_LocalPosition: {x: -19, y: -5.27, z: 57}
+  m_LocalScale: {x: 44, y: 23.6626, z: 50}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
@@ -13957,7 +13957,7 @@ Prefab:
     - target: {fileID: 114696154577918200, guid: 74555de4f4b7be14aa7bfd197d0bc36b,
         type: 2}
       propertyPath: jumpHeight
-      value: 450
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 114637078011077788, guid: 74555de4f4b7be14aa7bfd197d0bc36b,
         type: 2}

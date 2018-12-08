@@ -44,7 +44,7 @@ public class UIManager : MonoBehaviour
         keys.text = keysSO.CurrentKeys + "/" + keysSO.MaxKeys + " Keys";
         if (healthSO != null)
         {
-            health.text = healthSO.AcctualHealth + "/" + healthSO.MaxHealth + "LP";
+            health.text = (healthSO.AcctualHealth >= 0 ? healthSO.AcctualHealth : 0) + "/" + healthSO.MaxHealth + "LP";
         }
     }
 
