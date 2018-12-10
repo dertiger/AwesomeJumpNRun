@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum DamageType{
+public enum DamageTypes{
     SHOOT,
     SWORD,
     JUMP,
     MONSTER,
-    ONEHIT
+    ONEHIT,
+    ENVIROMENT
 }
