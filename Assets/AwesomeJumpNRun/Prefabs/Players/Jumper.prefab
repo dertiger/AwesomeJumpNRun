@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 108585638517173550}
   m_Layer: 10
   m_Name: Jumper
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: cf15bd8ea04135642b7cb7c855e3a9a6, type: 2}
+  - {fileID: 2100000, guid: 93b6ad353d6971248b2c62b73ee13780, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffe43ba9aeb543b4093899e19eea4071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpHeight: 400
+  jumpHeight: 10
 --- !u!114 &114751195267616532
 MonoBehaviour:
   m_ObjectHideFlags: 1
