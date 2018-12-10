@@ -48,9 +48,9 @@ public class PlayerManager : MonoBehaviour
     {
         inputManager.NextChar += OnNextChar;
         inputManager.PerviousChar += OnPerviousChar;
+        outOfMap.PlayerFellOutOfMap += OnPlayerFellOutOfMap;
         rigbody = GetComponent<Rigidbody>();
         Player = 0;
-        outOfMap.PlayerFellOutOfMap += OnPlayerFellOutOfMap;
     }
 
     private void OnPerviousChar()
@@ -76,7 +76,7 @@ public class PlayerManager : MonoBehaviour
             Destroy(myPlayer);
         }
         myPlayer = Instantiate(player, transform);
-        PlayerHealth playerHealth = GetComponentInChildren<PlayerHealth>();
+        PlayerHealth playerHealth = myPlayer.GetComponentInChildren<PlayerHealth>();
         playerHealth.OnDied += OnDied;
         uIManager.setHealthSO(playerHealth.HealthSO);
     }
