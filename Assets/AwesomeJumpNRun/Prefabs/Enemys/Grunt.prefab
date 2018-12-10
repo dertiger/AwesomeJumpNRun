@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 114244113460232850}
   - component: {fileID: 114542024818771138}
   - component: {fileID: 114795221877434176}
+  - component: {fileID: 114439325132227482}
   - component: {fileID: 65449511873403102}
   m_Layer: 9
   m_Name: Grunt
@@ -197,6 +198,17 @@ MonoBehaviour:
   movementModifiersInPercent: 
   stepSize: 0.2
   ingnoreLayer: 0
+--- !u!114 &114439325132227482
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1022056392199546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 674690dbec7b5c14db89bcc76c188bb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114542024818771138
 MonoBehaviour:
   m_ObjectHideFlags: 1
