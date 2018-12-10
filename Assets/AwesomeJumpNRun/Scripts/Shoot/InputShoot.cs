@@ -9,4 +9,9 @@ public class InputShoot : Shoot
         base.Start();
         GameObject.FindGameObjectWithTag("InputManager").GetComponent<InputManager>().Shoot += OnShoot;
     }
+
+    private void OnDestroy()
+    {
+        GameObject.FindGameObjectWithTag("InputManager").GetComponent<InputManager>().Shoot -= OnShoot;
+    }
 }

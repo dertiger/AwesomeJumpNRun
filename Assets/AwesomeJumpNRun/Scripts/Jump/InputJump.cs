@@ -9,4 +9,10 @@ public class InputJump : Jump
         base.Start();
         GameObject.FindGameObjectWithTag("InputManager").GetComponent<InputManager>().Jump += OnJump;
     }
+
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        GameObject.FindGameObjectWithTag("InputManager").GetComponent<InputManager>().Jump -= OnJump;
+    }
 }

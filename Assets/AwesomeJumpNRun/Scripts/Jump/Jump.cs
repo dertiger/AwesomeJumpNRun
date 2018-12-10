@@ -55,4 +55,9 @@ public abstract class Jump : MonoBehaviour
 
         return otherTop - ownBot;
     }
+
+    protected virtual void OnDestroy()
+    {
+        GetComponentInParent<CollidedObjects>().ObjectCollided -= OnObjectCollided;
+    }
 }

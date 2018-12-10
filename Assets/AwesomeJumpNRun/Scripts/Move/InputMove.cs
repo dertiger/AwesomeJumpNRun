@@ -16,4 +16,10 @@ public class InputMove : Move
     {
         moveDirection = direction;
     }
+
+    private void OnDestroy()
+    {
+        GetComponentInParent<CollidedObjects>().ObjectCollided -= CollidedWithObject;
+        GameObject.FindGameObjectWithTag("InputManager").GetComponent<InputManager>().Move -= OnMove;
+    }
 }
