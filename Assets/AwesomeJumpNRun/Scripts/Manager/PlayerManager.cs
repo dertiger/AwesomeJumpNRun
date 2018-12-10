@@ -62,9 +62,4 @@ public class PlayerManager : MonoBehaviour
             PlayerJumped();
         }
     }
-
-    private void TakeDamage(int damageAmount)
-    {
-        playerHealth.TakeDamage(damageAmount);
-    }
 }

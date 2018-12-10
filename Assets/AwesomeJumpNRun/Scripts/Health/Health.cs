@@ -32,11 +32,15 @@ public abstract class Health : MonoBehaviour
 
     public void TakeOneHit()
     {
-        TakeDamage(CurrentHp);
+        TakeDamage(CurrentHp, DamageType.ONEHIT);
     }
 
-    public void TakeDamage(int damageAmount)
+    public void TakeDamage(int damageAmount, DamageType damageType)
     {
+        if(damageType == DamageType.ONEHIT)
+        {
+            damageAmount = CurrentHp;
+        }
         CurrentHp -= damageAmount;
 
         HpPercentChange();

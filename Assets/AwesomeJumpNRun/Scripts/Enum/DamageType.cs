@@ -6,5 +6,6 @@ public enum DamageType{
     SHOOT,
     SWORD,
     JUMP,
-    MONSTER
+    MONSTER,
+    ONEHIT
 }

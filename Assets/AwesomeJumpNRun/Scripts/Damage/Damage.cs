@@ -17,4 +17,14 @@ public class Damage : MonoBehaviour {
             damageAmount = value;
         }
     }
+
+    private void OnCollisionEnter(Collision obj)
+    {
+        var healthOther = obj.collider.GetComponentInChildren<Health>();
+        if (healthOther != null)
+        {
+            healthOther.TakeDamage(DamageAmount, damageType);
+            Debug.Log("did Damage");
+        }
+    }
 }
