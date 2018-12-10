@@ -6,6 +6,8 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     public event Action Jump = delegate { };
+    public event Action PerviousChar = delegate { };
+    public event Action NextChar = delegate { };
     public event Action<MoveDirection> Move = delegate { };
     public event Action ChangeDimension = delegate { };
     public event Action<Characters> SwitchedCharacter = delegate { };
@@ -25,6 +27,14 @@ public class InputManager : MonoBehaviour
         }
         else if (!playerHasToRestart)
         {
+            if (Input.GetKeyDown(keyOption.PERVIOUSCHAR))
+            {
+                PerviousChar();
+            }
+            if (Input.GetKeyDown(keyOption.NEXTCHAR))
+            {
+                NextChar();
+            }
             if (Input.GetKeyDown(keyOption.JUMPKEY))
             {
                 Jump();
@@ -46,7 +56,7 @@ public class InputManager : MonoBehaviour
     }
 
     private void CheckCharacters()
-    {
+    {/*
         if (Input.GetKeyDown(keyOption.CHARACTER1))
         {
             SwitchedCharacter(Characters.CHARACTER1);
@@ -58,7 +68,7 @@ public class InputManager : MonoBehaviour
         else if (Input.GetKeyDown(keyOption.CHARACTER3))
         {
             SwitchedCharacter(Characters.CHARACTER3);
-        }
+        }*/
     }
 
     private void CheckMove()

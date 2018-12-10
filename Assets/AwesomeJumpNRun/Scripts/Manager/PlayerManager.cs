@@ -8,22 +8,59 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private PlayerPosition playerPosition;
     [SerializeField] private UIManager uIManager;
     [SerializeField] private OutOfMap outOfMap;
+    [SerializeField] private InputManager inputManager;
 
-    [SerializeField] private List<HealthSO> healthSOs;
+    [SerializeField] private List<GameObject> players;
     public event Action PlayerJumped = delegate { };
     public event Action PlayerDescending = delegate { };
     public event Action PlayerDied = delegate { };
 
     private Rigidbody rigbody;
-    private Health playerHealth;
+    private int player;
+    private GameObject myPlayer = null;
+
+    public int Player
+    {
+        get
+        {
+            return player;
+        }
+
+        set
+        {
+            if (value < 0)
+            {
+                player = players.Count - 1;
+            }
+            else if (value > players.Count - 1)
+            {
+                player = 0;
+            }
+            else
+            {
+                player = value;
+            }
+            InitializePlayerParameters(players[Player]);
+        }
+    }
 
     private void Start()
     {
+        inputManager.NextChar += OnNextChar;
+        inputManager.PerviousChar += OnPerviousChar;
         rigbody = GetComponent<Rigidbody>();
-        InitializePlayerParameters();
-        uIManager.setHealthSO(healthSOs[1]);
-
+        Player = 0;
         outOfMap.PlayerFellOutOfMap += OnPlayerFellOutOfMap;
+    }
+
+    private void OnPerviousChar()
+    {
+        Player--;
+    }
+
+    private void OnNextChar()
+    {
+        Player++;
     }
 
     private void OnPlayerFellOutOfMap()
@@ -32,10 +69,16 @@ public class PlayerManager : MonoBehaviour
         PlayerDied();
     }
 
-    private void InitializePlayerParameters()
+    private void InitializePlayerParameters(GameObject player)
     {
-        playerHealth = GetComponentInChildren<Health>();
+        if(myPlayer != null)
+        {
+            Destroy(myPlayer);
+        }
+        myPlayer = Instantiate(player, transform);
+        PlayerHealth playerHealth = GetComponentInChildren<PlayerHealth>();
         playerHealth.OnDied += OnDied;
+        uIManager.setHealthSO(playerHealth.HealthSO);
     }
 
     private void OnDied()

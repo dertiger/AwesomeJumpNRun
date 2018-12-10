@@ -8,9 +8,8 @@ public class KeyOption : ScriptableObject
     public KeyCode JUMPKEY = KeyCode.Space;
     public KeyCode MOVERIGHT = KeyCode.RightArrow;
     public KeyCode MOVELEFT = KeyCode.LeftArrow;
-    public KeyCode CHARACTER1 = KeyCode.Q;
-    public KeyCode CHARACTER2 = KeyCode.W;
-    public KeyCode CHARACTER3 = KeyCode.E;
+    public KeyCode PERVIOUSCHAR = KeyCode.Q;
+    public KeyCode NEXTCHAR = KeyCode.R;
     public KeyCode ENTERDIMENSION = KeyCode.F;
     public KeyCode SHOOT = KeyCode.D;
     public KeyCode RESTART = KeyCode.R;

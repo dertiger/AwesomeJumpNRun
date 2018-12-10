@@ -8,7 +8,7 @@ public class PlayerHealth : Health {
     protected override void Start()
     {
         base.Start();
-        healthSO.MaxHealth = maxHp;
+        HealthSO.MaxHealth = maxHp;
     }
 
     protected override int CurrentHp
@@ -21,7 +21,20 @@ public class PlayerHealth : Health {
         set
         {
             base.CurrentHp = value;
-            healthSO.AcctualHealth = base.CurrentHp;
+            HealthSO.AcctualHealth = base.CurrentHp;
+        }
+    }
+
+    public HealthSO HealthSO
+    {
+        get
+        {
+            return healthSO;
+        }
+
+        private set
+        {
+            healthSO = value;
         }
     }
 }
