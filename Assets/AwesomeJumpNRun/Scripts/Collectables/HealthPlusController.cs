@@ -5,7 +5,7 @@ using UnityEngine;
 public class HealthPlusController : MonoBehaviour {
 
     private void onTriggerEntder(Collider other) {
-        if (other.GameObject.CompareTag("Player")){
+        if (other.gameObject.CompareTag("Player")){
             //Set health to 100%
         }
     }
