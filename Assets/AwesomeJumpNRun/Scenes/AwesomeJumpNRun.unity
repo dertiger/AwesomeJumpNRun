@@ -433,7 +433,6 @@ Transform:
   - {fileID: 1010399440}
   - {fileID: 1865726910}
   - {fileID: 1457141991}
-  - {fileID: 1553347355}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5155,6 +5154,7 @@ Transform:
   - {fileID: 1257412800}
   - {fileID: 299257705}
   - {fileID: 399680069}
+  - {fileID: 1553347355}
   m_Father: {fileID: 735486263}
   m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10854,9 +10854,10 @@ GameObject:
   - component: {fileID: 1553347355}
   - component: {fileID: 1553347358}
   - component: {fileID: 1553347357}
+  - component: {fileID: 1553347359}
   - component: {fileID: 1553347356}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: LavaWorld
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10868,12 +10869,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1553347354}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -48, y: 5, z: 19}
+  m_LocalScale: {x: 38, y: 22, z: 1}
   m_Children: []
-  m_Father: {fileID: 68088990}
-  m_RootOrder: 8
+  m_Father: {fileID: 741186448}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1553347356
 BoxCollider:
@@ -10893,7 +10894,7 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1553347354}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -10929,6 +10930,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1553347354}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1553347359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1553347354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73f17d1614ab61a43b51b5e19fb58fa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1554676935
 Prefab:
   m_ObjectHideFlags: 0
@@ -11518,6 +11530,10 @@ Prefab:
         type: 2}
       propertyPath: m_Mass
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599651421715422, guid: b9b6a845aa8975843918e9ca0b764b62, type: 2}
+      propertyPath: m_TagString
+      value: Plattform
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9b6a845aa8975843918e9ca0b764b62, type: 2}

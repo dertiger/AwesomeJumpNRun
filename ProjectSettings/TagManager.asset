@@ -12,6 +12,7 @@ TagManager:
   - Triggers
   - CaveWall
   - BossDoorTrigger
+  - Plattform
   layers:
   - Default
   - TransparentFX
