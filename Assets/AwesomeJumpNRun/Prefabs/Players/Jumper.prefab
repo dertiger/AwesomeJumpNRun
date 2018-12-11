@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffe43ba9aeb543b4093899e19eea4071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpHeight: 10
+  jumpHeight: 8
 --- !u!114 &114751195267616532
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -174,5 +174,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91a0036b10eeb1745b25d3e1d478a8f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 100
+  maxHp: 160
   healthSO: {fileID: 11400000, guid: a50a65911ade51e4dbb1d3814cb819ec, type: 2}
