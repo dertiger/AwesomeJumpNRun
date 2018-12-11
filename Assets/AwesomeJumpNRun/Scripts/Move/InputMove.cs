@@ -19,7 +19,16 @@ public class InputMove : Move
 
     private void OnDestroy()
     {
-        GetComponentInParent<CollidedObjects>().ObjectCollided -= CollidedWithObject;
-        GameObject.FindGameObjectWithTag("InputManager").GetComponent<InputManager>().Move -= OnMove;
+        var collidedObjects = GetComponentInParent<CollidedObjects>();
+        if (collidedObjects != null)
+        {
+            collidedObjects.ObjectCollided -= CollidedWithObject;
+        }
+
+        var inputManager = GameObject.FindGameObjectWithTag("InputManager");
+        if (inputManager != null)
+        {
+            inputManager.GetComponent<InputManager>().Move -= OnMove;
+        }
     }
 }

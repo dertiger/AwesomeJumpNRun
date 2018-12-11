@@ -9,7 +9,7 @@ public abstract class Jump : MonoBehaviour
     public event Action ObjectJumped = delegate { };
 
     private int canJump;
-    private bool tooLateForDoubleJump;
+    private bool onGround = true;
     private Rigidbody rigBody;
 
     protected virtual void Start()
@@ -24,15 +24,16 @@ public abstract class Jump : MonoBehaviour
         if (GetStepDifference(obj) < 0.2f)
         {
             canJump = 2;
-            tooLateForDoubleJump = false;
+            onGround = true;
         }
     }
 
     protected void OnJump()
     {
-        if (canJump > 0 && !tooLateForDoubleJump)
+        if (canJump > 0)
         {
             ObjectJumped();
+            onGround = false;
             canJump--;
             rigBody.velocity = new Vector3(rigBody.velocity.x, jumpHeight, rigBody.velocity.z);
             StartCoroutine(WaitForJump());
@@ -42,7 +43,10 @@ public abstract class Jump : MonoBehaviour
     private IEnumerator WaitForJump()
     {
         yield return new WaitForSeconds(1f);
-        tooLateForDoubleJump = true;
+        if (!onGround)
+        {
+            canJump = 0;
+        }
     }
 
     private float GetStepDifference(Collision collision)
@@ -58,6 +62,10 @@ public abstract class Jump : MonoBehaviour
 
     protected virtual void OnDestroy()
     {
-        GetComponentInParent<CollidedObjects>().ObjectCollided -= OnObjectCollided;
+        var collidedObjects = GetComponentInParent<CollidedObjects>();
+        if (collidedObjects != null)
+        {
+            collidedObjects.ObjectCollided -= OnObjectCollided;
+        }
     }
 }

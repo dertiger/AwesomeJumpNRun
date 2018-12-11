@@ -5,7 +5,7 @@ using UnityEngine;
 public class InputJump : Jump
 {
     protected override void Start()
-    { 
+    {
         base.Start();
         GameObject.FindGameObjectWithTag("InputManager").GetComponent<InputManager>().Jump += OnJump;
     }
@@ -13,6 +13,10 @@ public class InputJump : Jump
     protected override void OnDestroy()
     {
         base.OnDestroy();
-        GameObject.FindGameObjectWithTag("InputManager").GetComponent<InputManager>().Jump -= OnJump;
+        var inputManager = GameObject.FindGameObjectWithTag("InputManager");
+        if (inputManager != null)
+        {
+            inputManager.GetComponent<InputManager>().Jump -= OnJump;
+        }
     }
 }

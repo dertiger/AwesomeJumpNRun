@@ -10,6 +10,7 @@ public class DPS : AbstractDamage {
     private IEnumerator DoDamage()
     {
         Debug.Log("did Damage");
+        //TODO: when changing charakter. No OnCollisionExit()
         healthOther.TakeDamage(DamageAmount, DamageType);
         yield return new WaitForSeconds(sDelay);
         if(healthOther != null)
@@ -29,7 +30,8 @@ public class DPS : AbstractDamage {
 
     private void OnCollisionExit(Collision collision)
     {
-        if (healthOther.Equals(collision.collider.GetComponentInChildren<Health>()))
+        var healthFromCollider = collision.collider.GetComponentInChildren<Health>();
+        if (healthFromCollider != null && healthOther.Equals(healthFromCollider))
         {
             healthOther = null;
         }
