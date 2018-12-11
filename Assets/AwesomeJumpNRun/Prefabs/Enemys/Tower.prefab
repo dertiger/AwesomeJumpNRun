@@ -193,6 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 100
+  remains: {fileID: 1576878625899394, guid: 8b0a285ed9d8619488c5bdca26ef1d2e, type: 2}
 --- !u!114 &114543954352216228
 MonoBehaviour:
   m_ObjectHideFlags: 1
