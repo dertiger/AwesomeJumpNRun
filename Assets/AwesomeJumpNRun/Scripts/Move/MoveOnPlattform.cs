@@ -18,6 +18,11 @@ public class MoveOnPlattform : MonoBehaviour {
        
     }
 
+    void OnCollisionExit(Collision other) {
+        Destroy(gameObject.GetComponent<FixedJoint>());
+        onPlattform = false;
+    }
+
     void Update() {
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
         {

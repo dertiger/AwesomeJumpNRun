@@ -4392,6 +4392,15 @@ Prefab:
       propertyPath: m_Name
       value: IcePlattform (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1999570648657700, guid: e8263b9ab0e3f8f42904dd1a090520a0, type: 2}
+      propertyPath: m_TagString
+      value: Plattform
+      objectReference: {fileID: 0}
+    - target: {fileID: 54051218501758354, guid: e8263b9ab0e3f8f42904dd1a090520a0,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 54
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114705372284047746, guid: e8263b9ab0e3f8f42904dd1a090520a0, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: e8263b9ab0e3f8f42904dd1a090520a0, type: 2}
@@ -8839,6 +8848,10 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999570648657700, guid: e8263b9ab0e3f8f42904dd1a090520a0, type: 2}
+      propertyPath: m_TagString
+      value: Plattform
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8263b9ab0e3f8f42904dd1a090520a0, type: 2}
@@ -14033,7 +14046,12 @@ Prefab:
       propertyPath: m_Constraints
       value: 90
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1999570648657700, guid: e8263b9ab0e3f8f42904dd1a090520a0, type: 2}
+      propertyPath: m_TagString
+      value: Plattform
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114705372284047746, guid: e8263b9ab0e3f8f42904dd1a090520a0, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: e8263b9ab0e3f8f42904dd1a090520a0, type: 2}
   m_IsPrefabAsset: 0
 --- !u!4 &1878974236 stripped
@@ -14550,7 +14568,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1599651421715422, guid: b9b6a845aa8975843918e9ca0b764b62, type: 2}
       propertyPath: m_Name
-      value: Plattform (1)
+      value: Plattform_1
       objectReference: {fileID: 0}
     - target: {fileID: 4044874657470766, guid: b9b6a845aa8975843918e9ca0b764b62, type: 2}
       propertyPath: m_LocalScale.x
@@ -14569,6 +14587,10 @@ Prefab:
         type: 2}
       propertyPath: m_Constraints
       value: 108
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599651421715422, guid: b9b6a845aa8975843918e9ca0b764b62, type: 2}
+      propertyPath: m_TagString
+      value: Plattform
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9b6a845aa8975843918e9ca0b764b62, type: 2}
