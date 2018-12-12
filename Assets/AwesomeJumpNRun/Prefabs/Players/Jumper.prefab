@@ -25,7 +25,6 @@ GameObject:
   - component: {fileID: 114751195267616532}
   - component: {fileID: 114696154577918200}
   - component: {fileID: 114980514441257462}
-  - component: {fileID: 114403783694524004}
   - component: {fileID: 108585638517173550}
   m_Layer: 10
   m_Name: Jumper
@@ -138,17 +137,6 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114403783694524004
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1248939494232070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30bc69abe6b214e4dbb599b7f86421d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114696154577918200
 MonoBehaviour:
   m_ObjectHideFlags: 1
