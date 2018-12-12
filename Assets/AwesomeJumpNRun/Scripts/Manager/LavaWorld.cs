@@ -15,7 +15,7 @@ public class LavaWorld : MonoBehaviour
             lightobject = GameObject.Find("Directional Light");
             light = lightobject.GetComponent<Light>();
             light.color = Color.red;
-            //light.intensity = 4.0f;
+            
         }
     }
 
