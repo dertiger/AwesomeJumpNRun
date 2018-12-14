@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -14085,7 +14085,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPosition: {fileID: 11400000, guid: 6eb0e51653261124b816e6af78adbc66, type: 2}
-  uIManager: {fileID: 2007992852}
   outOfMap: {fileID: 1865726911}
   inputManager: {fileID: 1016422123}
   players:
@@ -15304,6 +15303,14 @@ MonoBehaviour:
   keys: {fileID: 1930974642}
   gameManager: {fileID: 1016358523}
   shouldRestart: {fileID: 81122713}
+  playerManager: {fileID: 1879235586}
+  activePlayer: {fileID: 183360516}
+  inactivePlayerLeft: {fileID: 1518517582}
+  inactivePlayerRight: {fileID: 2116379771}
+  healthSOs:
+  - {fileID: 11400000, guid: a50a65911ade51e4dbb1d3814cb819ec, type: 2}
+  - {fileID: 11400000, guid: 904b286b2db77f340a477cf42d1834fd, type: 2}
+  - {fileID: 11400000, guid: 3e686d35693331144936f4227d3a931e, type: 2}
 --- !u!1001 &2009672576
 Prefab:
   m_ObjectHideFlags: 0

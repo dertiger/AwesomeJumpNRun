@@ -19,11 +19,19 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private TextMeshProUGUI shouldRestart;
 
+    [SerializeField] private PlayerManager playerManager;
+    [SerializeField] private TextMeshProUGUI activePlayer;
+    [SerializeField] private TextMeshProUGUI inactivePlayerLeft;
+    [SerializeField] private TextMeshProUGUI inactivePlayerRight;
+
+    [SerializeField] private List<HealthSO> healthSOs;
+
     private HealthSO healthSO;
 
     private void Start()
     {
         gameManager.ShouldRestartGame += OnShouldRestartGame;
+        playerManager.PlayerChanged += OnPlayerChanged;
     }
 
     private void OnDestroy()
@@ -48,8 +56,26 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void setHealthSO(HealthSO healthSO)
+    private void OnPlayerChanged(string playerName)
     {
-        this.healthSO = healthSO;
+        var activePlayerBefore = activePlayer.text;
+        activePlayer.text = playerName;
+        if (inactivePlayerLeft.text.Equals(playerName))
+        {
+            inactivePlayerLeft.text = activePlayerBefore;
+        }
+        else
+        {
+            inactivePlayerRight.text = activePlayerBefore;
+        }
+
+        foreach (var healthSo in healthSOs)
+        {
+            if (healthSo.name.Equals(playerName))
+            {
+                this.healthSO = healthSo;
+                break;
+            }
+        }
     }
 }

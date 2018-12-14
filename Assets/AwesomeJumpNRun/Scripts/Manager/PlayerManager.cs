@@ -6,7 +6,6 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField] private PlayerPosition playerPosition;
-    [SerializeField] private UIManager uIManager;
     [SerializeField] private OutOfMap outOfMap;
     [SerializeField] private InputManager inputManager;
 
@@ -14,6 +13,7 @@ public class PlayerManager : MonoBehaviour
     public event Action PlayerJumped = delegate { };
     public event Action PlayerDescending = delegate { };
     public event Action PlayerDied = delegate { };
+    public event Action<string> PlayerChanged = delegate { };
 
     private Rigidbody rigbody;
     private int player;
@@ -79,7 +79,7 @@ public class PlayerManager : MonoBehaviour
         myPlayer = Instantiate(player, transform);
         PlayerHealth playerHealth = myPlayer.GetComponentInChildren<PlayerHealth>();
         playerHealth.OnDied += OnDied;
-        uIManager.setHealthSO(playerHealth.HealthSO);
+        PlayerChanged(myPlayer.name.Split('(')[0]);
     }
 
     private void setPlayersHealthToMax()
