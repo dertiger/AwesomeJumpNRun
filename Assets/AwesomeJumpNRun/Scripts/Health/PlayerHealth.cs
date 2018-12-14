@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class PlayerHealth : Health {
     [SerializeField] private HealthSO healthSO;
-
-    protected override void Start()
+    public HealthSO HealthSO
     {
-        base.Start();
-        HealthSO.MaxHealth = maxHp;
+        get
+        {
+            return healthSO;
+        }
+
+        private set
+        {
+            healthSO = value;
+        }
     }
 
     protected override int CurrentHp
@@ -25,16 +31,11 @@ public class PlayerHealth : Health {
         }
     }
 
-    public HealthSO HealthSO
+    protected override void Start()
     {
-        get
-        {
-            return healthSO;
-        }
-
-        private set
-        {
-            healthSO = value;
-        }
+        int currentHealth = healthSO.AcctualHealth;
+        base.Start();
+        CurrentHp = currentHealth;
+        HealthSO.MaxHealth = maxHp;
     }
 }

@@ -49,6 +49,7 @@ public class PlayerManager : MonoBehaviour
         inputManager.NextChar += OnNextChar;
         inputManager.PerviousChar += OnPerviousChar;
         outOfMap.PlayerFellOutOfMap += OnPlayerFellOutOfMap;
+        setPlayersHealthToMax();
         rigbody = GetComponent<Rigidbody>();
         Player = 0;
     }
@@ -79,6 +80,15 @@ public class PlayerManager : MonoBehaviour
         PlayerHealth playerHealth = myPlayer.GetComponentInChildren<PlayerHealth>();
         playerHealth.OnDied += OnDied;
         uIManager.setHealthSO(playerHealth.HealthSO);
+    }
+
+    private void setPlayersHealthToMax()
+    {
+        foreach (GameObject myPlayer in players)
+        {
+            PlayerHealth playerHealth = myPlayer.GetComponentInChildren<PlayerHealth>();
+            playerHealth.HealthSO.AcctualHealth = playerHealth.HealthSO.MaxHealth;
+        }
     }
 
     private void OnDied()
