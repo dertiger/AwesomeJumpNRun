@@ -24,6 +24,10 @@ public class CoinController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         GetComponentInParent<CoinCollectedHandler>().CoinGotCollected(coinData.Value);
+        if (!collected)
+        {
+            GetComponent<AudioSource>().Play();
+        }
         StartCoroutine(lateDestroy());
     }
 
