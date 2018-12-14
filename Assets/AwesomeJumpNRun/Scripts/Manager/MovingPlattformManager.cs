@@ -37,7 +37,7 @@ public class MovingPlattformManager : MonoBehaviour {
        
 	}
 
-    void OnCollisionEnter(Collision collision) {
+    private void OnCollisionEnter(Collision collision) {
         if (!collision.gameObject.CompareTag("Player"))
         {
             collided = !collided;
