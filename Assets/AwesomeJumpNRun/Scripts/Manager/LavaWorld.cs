@@ -6,16 +6,15 @@ public class LavaWorld : MonoBehaviour
 {
 
     private GameObject lightobject;
-    private Light light;
+    private Light myLight;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             lightobject = GameObject.Find("Directional Light");
-            light = lightobject.GetComponent<Light>();
-            light.color = Color.red;
-            
+            myLight = lightobject.GetComponent<Light>();
+            myLight.color = Color.red;
         }
     }
 
@@ -24,8 +23,8 @@ public class LavaWorld : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             lightobject = GameObject.Find("Directional Light");
-            light = lightobject.GetComponent<Light>();
-            light.color = Color.white;
+            myLight = lightobject.GetComponent<Light>();
+            myLight.color = Color.white;
         }
     }
 }

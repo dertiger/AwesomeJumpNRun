@@ -6,16 +6,16 @@ public class IceWorld : MonoBehaviour
 {
 
     private GameObject lightobject;
-    private Light light;
+    private Light myLight;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             lightobject = GameObject.Find("Directional Light");
-            light = lightobject.GetComponent<Light>();
+            myLight = lightobject.GetComponent<Light>();
             Color lightblue = new Color32(0, 247, 255, 255);
-            light.color = lightblue;
+            myLight.color = lightblue;
             
         }
     }
@@ -25,8 +25,8 @@ public class IceWorld : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             lightobject = GameObject.Find("Directional Light");
-            light = lightobject.GetComponent<Light>();
-            light.color = Color.white;
+            myLight = lightobject.GetComponent<Light>();
+            myLight.color = Color.white;
         }
     }
 }
