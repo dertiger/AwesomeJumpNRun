@@ -10,7 +10,7 @@ public class InputManager : MonoBehaviour
     public event Action NextChar = delegate { };
     public event Action<MoveDirection> Move = delegate { };
     public event Action ChangeDimension = delegate { };
-    public event Action<Characters> SwitchedCharacter = delegate { };
+    //public event Action<Characters> SwitchedCharacter = delegate { };
     public event Action Shoot = delegate { };
     public event Action RestartGame = delegate { };
 
