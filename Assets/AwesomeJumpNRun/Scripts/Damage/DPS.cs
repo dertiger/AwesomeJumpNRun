@@ -10,7 +10,7 @@ public class DPS : AbstractDamage {
     private IEnumerator DoDamage()
     {
         Debug.Log("did Damage");
-        //TODO: when changing charakter. No OnCollisionExit()
+        //TODO: when changing charakter. No OnCollisionExit() ? 
         healthOther.TakeDamage(DamageAmount, DamageType);
         yield return new WaitForSeconds(sDelay);
         if(healthOther != null)
