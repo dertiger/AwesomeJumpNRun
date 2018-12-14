@@ -42,7 +42,6 @@ GameObject:
   - component: {fileID: 114228702076747946}
   - component: {fileID: 114543954352216228}
   - component: {fileID: 114065755791251018}
-  - component: {fileID: 114924779290854548}
   - component: {fileID: 65950754690791048}
   m_Layer: 9
   m_Name: Tower
@@ -58,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1572713281465384}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.25, z: 58}
+  m_LocalPosition: {x: 0, y: -0.25, z: 48}
   m_LocalScale: {x: 1, y: 1.5, z: 1}
   m_Children:
   - {fileID: 4762304782353610}
@@ -208,15 +207,3 @@ MonoBehaviour:
   shootPosition: {fileID: 4762304782353610}
   shoot: {fileID: 1926621007651084, guid: e9d84796543a92d458ff93db4f6477b0, type: 2}
   shootDelaySec: 1.5
---- !u!114 &114924779290854548
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1572713281465384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 674690dbec7b5c14db89bcc76c188bb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  remains: {fileID: 1576878625899394, guid: 8b0a285ed9d8619488c5bdca26ef1d2e, type: 2}
