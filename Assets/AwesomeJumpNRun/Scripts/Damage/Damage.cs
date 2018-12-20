@@ -10,6 +10,7 @@ public class Damage : AbstractDamage {
         {
             healthOther.TakeDamage(DamageAmount, DamageType);
             Debug.Log("did Damage");
+            Debug.Log("Collided With" + obj.collider.name);
         }
     }
 }
