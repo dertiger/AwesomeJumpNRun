@@ -3910,11 +3910,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 518966218}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcdf5381e3e7e15419ba295c934a45cd, type: 3}
+  m_Script: {fileID: 11500000, guid: b5500e9cf4d91ba48b9d4128394a5412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
-  direction: z
 --- !u!65 &518966222
 BoxCollider:
   m_ObjectHideFlags: 0
