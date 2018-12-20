@@ -14131,6 +14131,7 @@ GameObject:
   - component: {fileID: 1879235586}
   - component: {fileID: 1879235590}
   - component: {fileID: 1879235591}
+  - component: {fileID: 1879235592}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -14259,6 +14260,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputManager: {fileID: 1016422123}
   keys: {fileID: 11400000, guid: 395e748c10581b9419d9b1fa570b95c1, type: 2}
+--- !u!114 &1879235592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1879235584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e501afd140ef7d4fbba0da3b16a50d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 0
+  damageType: 4
 --- !u!1001 &1885574296
 Prefab:
   m_ObjectHideFlags: 0

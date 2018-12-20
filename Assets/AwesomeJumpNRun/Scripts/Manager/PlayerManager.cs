@@ -18,6 +18,7 @@ public class PlayerManager : MonoBehaviour
     private Rigidbody rigbody;
     private int player;
     private GameObject myPlayer = null;
+    private bool nextCharNotPervious = false;
 
     public int Player
     {
@@ -56,11 +57,13 @@ public class PlayerManager : MonoBehaviour
 
     private void OnPerviousChar()
     {
+        nextCharNotPervious = false;
         Player--;
     }
 
     private void OnNextChar()
     {
+        nextCharNotPervious = true;
         Player++;
     }
 
@@ -83,9 +86,13 @@ public class PlayerManager : MonoBehaviour
             playerHealth.OnDied += OnDied;
             PlayerChanged(myPlayer.name.Split('(')[0]);
         }
-        else
+        else if(nextCharNotPervious)
         {
             OnNextChar();
+        }
+        else
+        {
+            OnPerviousChar();
         }
     }
 
