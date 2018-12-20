@@ -72,14 +72,21 @@ public class PlayerManager : MonoBehaviour
 
     private void InitializePlayerParameters(GameObject player)
     {
-        if(myPlayer != null)
+        if (PlayerAlive(player))
         {
-            Destroy(myPlayer);
+            if (myPlayer != null)
+            {
+                Destroy(myPlayer);
+            }
+            myPlayer = Instantiate(player, transform);
+            PlayerHealth playerHealth = myPlayer.GetComponentInChildren<PlayerHealth>();
+            playerHealth.OnDied += OnDied;
+            PlayerChanged(myPlayer.name.Split('(')[0]);
         }
-        myPlayer = Instantiate(player, transform);
-        PlayerHealth playerHealth = myPlayer.GetComponentInChildren<PlayerHealth>();
-        playerHealth.OnDied += OnDied;
-        PlayerChanged(myPlayer.name.Split('(')[0]);
+        else
+        {
+            OnNextChar();
+        }
     }
 
     private void setPlayersHealthToMax()
@@ -93,10 +100,40 @@ public class PlayerManager : MonoBehaviour
 
     private void OnDied()
     {
-        //TODO: Next charakter
-        //TODO: this Charakter Dies
-        rigbody.isKinematic = true;
-        PlayerDied();
+        if (AllPlayerDead())
+        {
+            rigbody.isKinematic = true;
+            PlayerDied();
+        }
+        else
+        {
+            OnNextChar();
+        }
+    }
+
+    private bool PlayerAlive(GameObject player)
+    {
+        PlayerHealth playerhealth = player.GetComponentInChildren<PlayerHealth>();
+        if (playerhealth != null)
+        {
+            if(playerhealth.HealthSO.AcctualHealth <= 0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private bool AllPlayerDead()
+    {
+        foreach(GameObject player in players)
+        {
+            if (PlayerAlive(player))
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     private void Update()
