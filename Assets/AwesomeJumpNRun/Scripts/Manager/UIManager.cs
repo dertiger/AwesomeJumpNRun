@@ -32,6 +32,7 @@ public class UIManager : MonoBehaviour
     {
         gameManager.ShouldRestartGame += OnShouldRestartGame;
         playerManager.PlayerChanged += OnPlayerChanged;
+        playerManager.PlayerDied += OnPlayerDied;
     }
 
     private void OnDestroy()
@@ -58,24 +59,50 @@ public class UIManager : MonoBehaviour
 
     private void OnPlayerChanged(string playerName)
     {
-        var activePlayerBefore = activePlayer.text;
-        activePlayer.text = playerName;
-        if (inactivePlayerLeft.text.Equals(playerName))
+        if (!activePlayer.text.Equals(playerName))
         {
-            inactivePlayerLeft.text = activePlayerBefore;
+            var activePlayerBefore = activePlayer.text;
+            var lastPlayerfontStyle = activePlayer.fontStyle;
+            FontStyles inactivePlayerfontStyle;
+            if (inactivePlayerLeft.text.Equals(playerName))
+            {
+                inactivePlayerfontStyle = inactivePlayerLeft.fontStyle;
+                inactivePlayerLeft.text = activePlayerBefore;
+                inactivePlayerLeft.fontStyle = lastPlayerfontStyle;
+            }
+            else
+            {
+                inactivePlayerfontStyle = inactivePlayerRight.fontStyle;
+                inactivePlayerRight.text = activePlayerBefore;
+                inactivePlayerRight.fontStyle = lastPlayerfontStyle;
+            }
+            activePlayer.text = playerName;
+            activePlayer.fontStyle = inactivePlayerfontStyle;
+
+            foreach (var healthSo in healthSOs)
+            {
+                if (healthSo.name.Equals(playerName))
+                {
+                    this.healthSO = healthSo;
+                    break;
+                }
+            }
+        }
+    }
+
+    private void OnPlayerDied(string playerName)
+    {
+        if (activePlayer.text.Equals(playerName))
+        {
+            activePlayer.fontStyle = FontStyles.Strikethrough;
+        }
+        else if (inactivePlayerLeft.text.Equals(playerName))
+        {
+            inactivePlayerLeft.fontStyle = FontStyles.Strikethrough;
         }
         else
         {
-            inactivePlayerRight.text = activePlayerBefore;
-        }
-
-        foreach (var healthSo in healthSOs)
-        {
-            if (healthSo.name.Equals(playerName))
-            {
-                this.healthSO = healthSo;
-                break;
-            }
+            inactivePlayerRight.fontStyle = FontStyles.Strikethrough;
         }
     }
 }

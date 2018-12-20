@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DPS : AbstractDamage {
+public class DPS : AbstractDamage
+{
     [SerializeField] private float sDelay;
 
     Health healthOther;
@@ -13,9 +14,13 @@ public class DPS : AbstractDamage {
         //TODO: when changing charakter. No OnCollisionExit() ? 
         healthOther.TakeDamage(DamageAmount, DamageType);
         yield return new WaitForSeconds(sDelay);
-        if(healthOther != null)
+        if (healthOther != null)
         {
             StartCoroutine(DoDamage());
+        }
+        else
+        {
+            Debug.Log("left DPS area");
         }
     }
 
@@ -31,9 +36,13 @@ public class DPS : AbstractDamage {
     private void OnCollisionExit(Collision collision)
     {
         var healthFromCollider = collision.collider.GetComponentInChildren<Health>();
-        if (healthFromCollider != null && healthOther.Equals(healthFromCollider))
+        if (healthFromCollider != null)
         {
-            healthOther = null;
+            if (healthOther.Equals(healthFromCollider))
+            {
+                Debug.Log("Collision Exit DPS");
+                healthOther = null;
+            }
         }
     }
 }

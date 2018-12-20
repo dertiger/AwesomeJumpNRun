@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
         gameTimeHandler.GameTimeExpired += OnGameTimeExpired;
         StartCoroutine(gameTimeHandler.StartGameTimer());
 
-        playerManager.PlayerDied += OnPlayerDied;
+        playerManager.AllPlayerDied += OnPlayerDied;
         inputManager.RestartGame += OnRestartGame;
 
         bossRoomEnter.EnterBossroom += OnEnterBossroom;

@@ -12,8 +12,9 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private List<GameObject> players;
     public event Action PlayerJumped = delegate { };
     public event Action PlayerDescending = delegate { };
-    public event Action PlayerDied = delegate { };
+    public event Action AllPlayerDied = delegate { };
     public event Action<string> PlayerChanged = delegate { };
+    public event Action<string> PlayerDied = delegate { };
 
     private Rigidbody rigbody;
     private int player;
@@ -70,7 +71,7 @@ public class PlayerManager : MonoBehaviour
     private void OnPlayerFellOutOfMap()
     {
         rigbody.isKinematic = true;
-        PlayerDied();
+        AllPlayerDied();
     }
 
     private void InitializePlayerParameters(GameObject player)
@@ -107,10 +108,11 @@ public class PlayerManager : MonoBehaviour
 
     private void OnDied()
     {
+        PlayerDied(myPlayer.name.Split('(')[0]);
         if (AllPlayerDead())
         {
             rigbody.isKinematic = true;
-            PlayerDied();
+            AllPlayerDied();
         }
         else
         {
