@@ -7,6 +7,7 @@ public abstract class Health : MonoBehaviour
 {
     [SerializeField] protected int maxHp = 100;
     [SerializeField] private AudioSource damageSound;
+    [SerializeField] private List<DamageTypes> immunitys;
 
     public event Action OnDied = delegate { };
     public event Action<float> OnHpPercentChange = delegate { };
@@ -38,26 +39,33 @@ public abstract class Health : MonoBehaviour
 
     public void TakeDamage(int damageAmount, DamageTypes damageType)
     {
-        if(damageType == DamageTypes.ONEHIT)
+        if (!immunitys.Contains(damageType))
         {
-            damageAmount = CurrentHp;
-        }
-        if(damageAmount >= 0)
-        {
-            playSound();
-        }
-        CurrentHp -= damageAmount;
+            if (damageType == DamageTypes.ONEHIT)
+            {
+                damageAmount = CurrentHp;
+            }
+            if (damageAmount >= 0)
+            {
+                playSound();
+            }
+            CurrentHp -= damageAmount;
 
-        HpPercentChange();
+            HpPercentChange();
 
-        if (CurrentHp <= 0)
-        {
-            CurrentHp = 0;
-            Die();
+            if (CurrentHp <= 0)
+            {
+                CurrentHp = 0;
+                Die();
+            }
+            if (CurrentHp > maxHp)
+            {
+                CurrentHp = maxHp;
+            }
         }
-        if(CurrentHp > maxHp)
+        else
         {
-            CurrentHp = maxHp;
+            Debug.Log("Was imune");
         }
     }
 
