@@ -6,6 +6,7 @@ using UnityEngine;
 public abstract class Health : MonoBehaviour
 {
     [SerializeField] protected int maxHp = 100;
+    [SerializeField] private AudioSource damageSound;
 
     public event Action OnDied = delegate { };
     public event Action<float> OnHpPercentChange = delegate { };
@@ -41,6 +42,10 @@ public abstract class Health : MonoBehaviour
         {
             damageAmount = CurrentHp;
         }
+        if(damageAmount >= 0)
+        {
+            playSound();
+        }
         CurrentHp -= damageAmount;
 
         HpPercentChange();
@@ -65,5 +70,13 @@ public abstract class Health : MonoBehaviour
     protected virtual void Die()
     {
         OnDied();
+    }
+
+    private void playSound()
+    {
+        if(damageSound != null)
+        {
+            damageSound.Play();
+        }
     }
 }

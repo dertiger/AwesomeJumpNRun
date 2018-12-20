@@ -7,11 +7,13 @@ public abstract class Shoot : MonoBehaviour
     [SerializeField] private Transform shootPosition;
     [SerializeField] private GameObject shoot;
     [SerializeField] private float shootDelaySec;
+    [SerializeField] private AudioSource shootSond;
 
     private Transform shootHolder;
     private bool canShoot = true;
 
-    protected virtual void Start() {
+    protected virtual void Start()
+    {
         shootHolder = GameObject.FindGameObjectWithTag("BulletHolder").transform;
     }
 
@@ -19,6 +21,7 @@ public abstract class Shoot : MonoBehaviour
     {
         if (canShoot)
         {
+            PlayShootSound();
             Instantiate(shoot, shootPosition.position, shootPosition.rotation, shootHolder);
             StartCoroutine(ShootDelay());
         }
@@ -29,5 +32,14 @@ public abstract class Shoot : MonoBehaviour
         canShoot = false;
         yield return new WaitForSeconds(shootDelaySec);
         canShoot = true;
+    }
+
+    private void PlayShootSound()
+    {
+
+        if (shootSond != null)
+        {
+            shootSond.Play();
+        }
     }
 }

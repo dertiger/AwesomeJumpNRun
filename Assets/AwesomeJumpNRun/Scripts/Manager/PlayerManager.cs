@@ -108,6 +108,7 @@ public class PlayerManager : MonoBehaviour
 
     private void OnDied()
     {
+        GetComponent<AudioSource>().Play();
         PlayerDied(myPlayer.name.Split('(')[0]);
         if (AllPlayerDead())
         {
