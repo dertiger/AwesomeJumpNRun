@@ -36,7 +36,6 @@ public abstract class Shoot : MonoBehaviour
 
     private void PlayShootSound()
     {
-
         if (shootSond != null)
         {
             shootSond.Play();

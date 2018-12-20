@@ -76,7 +76,10 @@ public abstract class Health : MonoBehaviour
     {
         if(damageSound != null)
         {
-            damageSound.Play();
+            if (!damageSound.isPlaying)
+            {
+                damageSound.Play();
+            }
         }
     }
 }
