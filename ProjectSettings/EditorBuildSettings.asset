@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/AwesomeJumpNRun/Scenes/Credits.unity
     guid: 26f2733c519bd8440822df575647233d
+  - enabled: 1
+    path: Assets/AwesomeJumpNRun/Scenes/Einstellungen.unity
+    guid: f82435c57e46dd04d9df338fda0521a9
   m_configObjects: {}

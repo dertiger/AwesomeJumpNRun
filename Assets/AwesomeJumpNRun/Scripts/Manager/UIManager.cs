@@ -33,6 +33,14 @@ public class UIManager : MonoBehaviour
         gameManager.ShouldRestartGame += OnShouldRestartGame;
         playerManager.PlayerChanged += OnPlayerChanged;
         playerManager.PlayerDied += OnPlayerDied;
+        foreach (var healthSo in healthSOs)
+        {
+            if (healthSo.name.Equals("Jumper"))
+            {
+                this.healthSO = healthSo;
+                break;
+            }
+        }
     }
 
     private void OnDestroy()
