@@ -7,16 +7,16 @@ public class MainMenue : MonoBehaviour{
 
 	public void StartGame()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void Einstellungen()
     {
-
+        SceneManager.LoadScene(3);
     }
 
     public void Credits()
     {
-        
+        SceneManager.LoadScene(2);
     }
 }
